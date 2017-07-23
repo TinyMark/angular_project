@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .one {
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+            margin-top: 10px;
+        }
+
+        .two {
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            margin-top: 10px;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            margin-top: 10px;
+        }
+    </style>
+    <script src='./lib/angular.min.js'></script>
+</head>
+<!--    
+    1、AngularJS     的指令，都是以 ng- 开头的
+    2、ng-app        指定angularJS管理的范围
+    3、ng-controller 指定与控制器相关联的视图
+
+    4、ng-show       控制元素是否显示
+                        取值为boolean值、变量、表达式
+                        true    显示
+                        false   隐藏
+    5、ng-hide       控制元素是否隐藏
+                        取值为boolean值、变量、表达式
+                        true    隐藏
+                        false   显示
+    6、ng-if         控制元素是否在dom树上创建
+                        取值为boolean值、变量、表达式
+                        true    创建
+                        false   不创建
+
+    7、ng-src        AngularJS的src路径
+    8、ng-href       AngularJS的href路径
+
+    9、ng-class      用来指定CSS样式的类是否作用在元素身上
+                        格式：{
+                            CSS类名:boolean值
+                        }
+    10、ng-include   用来引入文件
+                        注意   需要在服务器打开
+                               路径加引号       
+    -->
+
+<body ng-app="myApp">
+    <div ng-controller="myCtrl">
+
+        <div class="one" ng-show="flag"> </div>
+        <div class="two" ng-if="true"> </div>
+        <div class="{{clsName}}"> </div>
+    </div>
+    <script>
+        var app = angular.module('myApp', []).controller('myCtrl', ['$scope', function ($scope) {
+            $scope.flag = true;
+            $scope.clsName = 'box';
+        }]);
+    </script>
+</body>
+
+</html>

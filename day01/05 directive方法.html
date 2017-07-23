@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='./lib/angular.min.js'></script>
+</head>
+<!--
+restrict: 指定自定义指令的类型.
+           E element 代表自定义的指令是1个html标签.
+           C 类
+           M Mark 注释.
+           A attribute
+template: 表示模板.
+templateUrl: 加载外部文件作为模板.
+replace:bool 是否替换原本的包裹标签.
+link:这是1个函数 有3个参数
+     scope:忽略.
+     element: 代表被设定了该指令的元素.
+     attrs: 可以拿到被element的所有的属性.
+-->
+
+<body ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <div hm-tag="jack"></div>
+        <div hm-tag="rose"></div>
+    </div>
+
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.directive('hmTag', function () {
+            return {
+                restrict: 'AE',
+                link: function (scope, element, attrs) {
+                    console.log(scope);
+                    console.log(element);
+                    console.log(attrs);
+                }
+            }
+        })
+
+        myApp.controller('myCtrl', ['$scope', function ($scope) {
+
+        }])
+    </script>
+</body>
+
+</html>

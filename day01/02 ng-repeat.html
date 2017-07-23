@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='./lib/angular.min.js'></script>
+</head>
+
+<body ng-app="myApp">
+    <table ng-controller="myCtrl">
+        <tr>
+            <td>NAME</td>
+            <td>AGE</td>
+            <td>GENDER</td>
+        </tr>
+        <tr ng-repeat="item in stus">
+            <td>{{item.name}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.gender}}</td>
+        </tr>
+    </table>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', ['$scope', function ($scope) {
+            $scope.stus = [
+                { name: 'Jack', age: 19, gender: 'man' },
+                { name: 'Rose', age: 17, gender: 'famale' },
+                { name: 'John', age: 20, gender: 'male' }
+            ]
+        }]);
+    </script>
+</body>
+
+</html>
