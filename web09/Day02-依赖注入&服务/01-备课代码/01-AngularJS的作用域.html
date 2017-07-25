@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 相互独立的控制器/视图 其$scope也是相互独立的.
+
+    2. 具有父子关系的控制器/视图. 在子控制器中可以访问父控制器$scope中的数据模型.
+
+    3. ng-init初始化的数据模型 可以在该标签下面所有的子控制器中访问.
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl1">
+        <span>在控制器1的视图中访问控制器1中的数据模型:</span> {{name1}}
+    </div>
+    <div ng-controller="demoCtrl2">
+        <span>在控制器2的视图中访问控制器1中的数据模型:</span> {{name1}}
+    </div>
+    <div ng-controller="demoCtrl3">
+        <span>在控制器3的视图中访问控制器1中的数据模型:</span> {{name1}}
+    </div>
+
+    <div ng-controller="father">
+        <span>{{sonName}}</span>
+        <div ng-controller="son">{{fatherName}}</div>
+    </div>
+
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl1", ["$scope", function ($scope) {
+            $scope.name1 = "jack"; //在ctrl1中定义了name1
+        }]);
+        app.controller("demoCtrl2", ["$scope", function ($scope) {
+
+        }]);
+        app.controller("demoCtrl3", ["$scope", function ($scope) {
+
+        }]);
+
+
+        app.controller("father", ["$scope", function ($scope) {
+            $scope.fatherName = "Jack.Wang";
+        }]);
+
+        app.controller("son", ["$scope", function ($scope) {
+              $scope.sonName = "格林.Wang";
+        }]);
+    </script>
+
+</body>
+
+</html>

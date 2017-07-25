@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 如果你认为 angularJS提供的过滤器功能不够强大.
+       或者没有你想要的功能.
+       angularJS允许我们自定义过滤器.
+
+    2. 模块对象提供了一个filter方法,允许我们调用这个方法创建自定义过滤器.
+       该方法有两个参数
+       第1个参数: 过滤器的名称.
+       第2个参数: 回调函数. 过滤器要做的事情.
+          回调函数需要按照要求返回1个函数.
+                           第1个参数: 要处理的数据.
+                           可以自定义你需要的其它的参数.
+                           返回值为处理完毕的数据
+        app.filter("highven",function(){
+            return function(data){
+                return data+"HOHA";
+            }
+        });
+    3. 自定义过滤器,英语句子首字母大写.
+        app.filter("firstBig",function(){
+            return function(data){
+                return data[0].toUpperCase() + data.slice(1);
+            }
+        });
+
+    4. 截取数组指定位数.
+
+
+    
+       
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+        <span>{{name|highven}}</span>
+        <br>
+        <span>{{info|firstBig}}</span>
+        <br>
+        <span>{{data|ltl:2:3}}</span>
+    </div>
+    <script>
+        var app = angular.module("hmApp",[]);
+
+        app.filter("highven",function(){
+            return function(data){
+                return data+"HOHA";
+            }
+        });
+
+        app.filter("firstBig",function(){
+            return function(data){
+                return data[0].toUpperCase() + data.slice(1);
+            }
+        });
+
+        app.filter("ltl",function(){
+            return function(data,start,count){
+                //2  3
+                return data.slice(start,start+count);
+            }
+        });
+
+        app.controller("demoCtrl",["$scope",function($scope){
+            $scope.name = "jack.wang";
+            $scope.info = "this is itcast!";
+            $scope.data = [10,20,30,40,50,60,70,80,90,100];
+        }]);
+
+    </script>
+</body>
+</html>

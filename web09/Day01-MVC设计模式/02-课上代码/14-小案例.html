@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            div div{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+            }
+    </style>
+    <!--
+   
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+        <input type="checkbox" id="sb" ng-model="switch"><label for="sb">开关</label>
+        <div ng-show="switch"></div>
+       
+    </div>  
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope", function ($scope) {
+          
+        }]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. $log是AngularJS提供的一个服务.
+      这个服务的作用,是用来输出信息的.
+      原生的console.log()输出的信息过于单调.
+      angularJS提供了一个可以输出丰富信息的服务  $log
+    
+    2.将$log服务注入到控制器.
+        var app = angular.module("hmApp",[]);
+            app.controller("demoCtrl",["$log",function($log){
+                $log.error("this is error message!");
+                $log.debug("this is debug message!");
+                $log.info("this is info message!");
+                $log.log("this is log message!");
+                $log.warn("this is warn message!");
+        }]);
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+<body ng-app="hmApp">
+    
+    <div ng-controller="demoCtrl"></div>
+
+    <script>
+        var app = angular.module("hmApp",[]);
+        app.controller("demoCtrl",["$log",function($log){
+            $log.error("this is error message!");
+            $log.debug("this is debug message!");
+            $log.info("this is info message!");
+            $log.log("this is log message!");
+            $log.warn("this is warn message!");
+        }]);
+    </script>
+</body>
+</html>

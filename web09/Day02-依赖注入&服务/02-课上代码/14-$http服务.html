@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 使用$http服务向服务器发送数据.
+
+       如果我们以get方式向服务器发送数据.
+       发送的数据是写在params属性中是1个对象.
+
+
+
+
+    2. $http参数是1个对象,通过这个对象的键值对来指定请求的参数.
+       url: "", 设定要求的资源的路径
+       method:"" 设定请求的方式 get/post
+       params:{} 当请求的方式是get的时候,将发送给服务器的数据以键值对的形式存储在这个对象中.
+       data:"", 当请求的方式是post的时候,将发送给服务器的数据放在这个属性中.
+       headers:{} 设置请求头.
+
+
+    3. 当我们用$http服务向服务器发送post数据的时候.
+       数据的格式默认是 Request Payload格式.
+       所以,要想办法将其转换为Form Data
+
+       
+
+   
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+
+    </div>
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope", "$http", function ($scope, $http) {
+            $http({
+                url:"./php/post.php",
+                method:"post",
+                data:"uName=admin&pwd=123456",
+                headers:{
+                    "Content-Type":"application/x-www-form-urlencoded"
+                }
+            }).then(function(res){
+                console.log(res.data);
+            }).catch(function(){
+                console.log("error!");
+            });
+        }]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 使用ng-app指令指定AngularJS管理的范围.
+    2. 调用全局对象angular的module方法根据ng-app的属性值创建模块.
+        第1个参数: ng-app属性的值.
+        第2个参数: 数组,该模块依赖那些模块,如果没有依赖 就传递一个空数组.
+        返回值: 创建成功的模块对象.
+        var app = angular.module("hmApp",[]);
+    ------创建MVC角色----------
+    3. 调用模块对象的controller方法创建控制器.
+        第1个参数: 创建的控制器的名称.
+        第2个参数: 数组
+                  前面的元素是字符串,是服务名称.
+                  最后一个元素是1个回调函数,参数按照顺序和前面的元素保持一致.
+        暂且记住,这是死的,在我们讲解依赖注入的时候 会详细解释.
+        app.controller("demoCtrl",["$scope",function($scope){
+
+        }]);
+    4. 指定与控制器关联的视图 使用ng-controller指令
+       该指令的值要与控制器的名字保持一致.
+
+    5. 在控制器中制造数据模型,将其附到$scope对象中.
+
+    6. 在视图中绑定控制器制造的数据.
+
+    7. ng-repeat指令.
+      作用: 将指定的标签重复生成
+      值: 一般是遍历1个数组. xx in xxs
+      子标签中使用绑定符号 绑定数据.
+       
+
+
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+        <table>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>成绩</th>
+            </tr>
+            <tr ng-repeat="stu in students">
+                <td>{{stu.name}}</td>
+                <td>{{stu.age}}</td>
+                <td>{{stu.score}}</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var app = angular.module("hmApp", []);
+
+        app.controller("demoCtrl", ["$scope", function ($scope) {
+            $scope.students = [
+                { name: "小明", age: 18, score: 98 },
+                { name: "小强", age: 21, score: 87 },
+                { name: "小东", age: 13, score: 67 },
+                { name: "小茜", age: 14, score: 34 },
+                { name: "小张", age: 15, score: 90 },
+                { name: "小鹏", age: 18, score: 45 },
+                { name: "小霸", age: 14, score: 90 },
+                { name: "小刘", age: 19, score: 12 },
+                { name: "小申", age: 21, score: 56 },
+                { name: "小林", age: 20, score: 99 },
+            ];
+        }]);
+    </script>
+</body>
+
+</html>

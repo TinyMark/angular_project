@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. Ajax 异步无刷新.
+
+    2. 复习一下get方式请求数据.
+
+    3. 复习一下post方式请求数据.
+
+    4. 复习向服务器发送数据.
+       4.1 以get方式向服务器发送数据.
+           
+    ----------------------------------
+    当我们以ajax的方式向服务器发送数据的时候.
+    发送的数据其实是分为很多种格式的.
+    不同的方式向服务器发送数据 发送的数据的格式是不一样的.
+
+    以get方式向服务器发送数据.发送的数据的格式是 Query String类型的.
+                            也只能是Query String类型的.
+
+    当我们以post方式向服务器发送数据的时候
+    发送的数据的格式默认是 Request Payload格式的.
+    如果我们以post方式向服务器发送数据 数据的格式是Request Payload格式的.
+    服务器是不会解析并接收的.
+
+
+    Form Data格式: 当我们以post方式向服务器发送数据的时候.
+                   只有当发送的数据的格式是Form Data格式的时候.
+                   服务器才会解析并接收.
+
+    所以,如果我们希望我们用post方式向服务器发送的数据可以被正常接收解析.
+    就需要将默认的RequestPayload格式转换为Form Data格式.
+    如何转换:
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    这句代码的本质工作: 将默认的RequestPayload格式转换为Form Data格式.
+
+
+    总结重点:
+    1. 以ajax向服务器发送数据.数据的格式.
+       1.1 QueryString 以get方式发送数据.
+       1.2 以post方式发送数据
+           Request Payload 默认 这种格式服务器一般不接收.
+           Form Data 服务器接收的格式一般是这种.
+    
+           转换格式:xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+       我们以后写项目的时候,看到1个api是post方式发送数据.,
+       只要没有特别说明,发送的数据的格式都要是FormData格式的.
+
+    2. jQuery的Ajax以post方式发送数据 我们不需要做转换 因为jq底层已经帮我们转换了.
+       
+    -->
+    <script>
+        function ajaxGet() {
+            //1.创建xhr对象.
+            var xhr = new XMLHttpRequest();
+            //2.设置请求方式和请求资源的路径.
+            xhr.open("get", "./php/stus.php");
+            //3.监听状态的改变.
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log(xhr.responseText);
+                }
+            }
+            //4.发送请求.
+            xhr.send();
+        }
+
+        function ajaxPost() {
+            //1.创建xhr对象.
+            var xhr = new XMLHttpRequest();
+            //2.设置请求方式和请求资源的路径.
+            xhr.open("post", "./php/stus.php");
+            //3.监听状态的改变.
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log(xhr.responseText);
+                }
+            }
+            //4.发送请求.
+            xhr.send();
+        }
+
+        function getWithData() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("get", "./php/get.php?name=jack&age=18");
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log(xhr.responseText);
+                }
+            }
+        }
+
+
+
+        function postWithData() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("post", "./php/post.php");
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xhr.send("uName=admin&pwd=123456");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log(xhr.responseText);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="ajaxGet()">get请求数据</button>
+    <button onclick="ajaxPost()">post请求数据</button>
+    <button onclick="getWithData()">get发送数据</button>
+    <button onclick="postWithData()">post发送数据</button>
+</body>
+
+</html>

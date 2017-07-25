@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. AngularJS把jsonp已经封装的很彻底了.
+       只需要指定method为jsonp就可以.
+
+    2. 需要特别说明的是
+       angularJS默认不允许跨域访问。
+       需要设置url白名单后才可以访问.
+
+    
+
+
+    -->
+    <script src="./libs/angular.min.js"></script>
+    <script src="./libs/core-min.js"></script>
+    <script src="./libs/enc-base64-min.js"></script>
+    <script src="./libs/hmac-min.js"></script>
+    <script src="./libs/sha1-min.js"></script>
+
+</head>
+
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+
+    </div>
+    <script>
+        var app = angular.module("hmApp", []);
+        app.config(["$sceDelegateProvider",function($sceDelegateProvider){
+            $sceDelegateProvider.resourceUrlWhitelist(["http://api.map.baidu.com/telematics/v3/weather"]);
+        }]);
+        app.controller("demoCtrl", ["$scope", "$http", function ($scope, $http) {    
+            $http({
+                url:"http://api.map.baidu.com/telematics/v3/weather",
+                method:"jsonp",
+                params:{
+                    location:"深圳",
+                    ak:"0A5bc3c4fb543c8f9bc54b77bc155724",
+                    output:"json"
+                }
+            }).then(function (info) {
+                console.log(info.data);
+            }).catch(function () {
+                console.log("请求失败!");
+            });
+            console.log("啦啦啦啦啦");
+        }]);
+    </script>
+
+</body>
+
+</html>

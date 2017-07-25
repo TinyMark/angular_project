@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+     1.HTML本身存在很多不足,功能单一,实现简单.
+     2.为了弥补HTML的不足,Angular扩展了HTML的标签和属性.
+       所谓的指令,其实就是Angular自定义的HTML标签和属性.
+     3.他们一般都是ng开头的,比如 ng-app ng-controller ng-repeat
+     -----Angular内置指令----
+     1. ng-app
+     2. ng-controller
+     3. ng-repeat
+     4. ng-show
+     5. ng-hidden
+     6. ng-if 控制元素是否创建.取值为boolean类型
+     7. ng-src 
+        当我们在src属性中使用数据绑定的形式绑定图片的地址.
+        浏览器在解析的时候会报1个404错误.
+        因为浏览器在解析src属性的时候,真的会去{{xxx}}请求这样一个路径.
+        而明显......
+        .....
+        ....
+     8. ng-href.
+     9. ng-class 是否要将指定的css类应用到该元素上.
+        <div ng-class="{red:true}"></div> red这个类样式将应用在这个div元素上
+        <div ng-class="{red:false}"></div> red这个类样式将不会应用在这个div元素上
+     10.ng-include
+        作用:包含 将其它文件包含在该标签中。
+        注意：
+            a. 指定值得时候,应该指定一个地址,该地址需要用单引号引起来.
+               ng-include="'./top.html'"
+            b. AngularJS是以Ajax的方式请求页面并显示在指定的地方.
+               所以,必须要以服务器的方式打开网页.
+     11.ng-disabled 是否禁用表单元素.   
+     12.ng-checked 是否选中
+     13.ng-selected 是否选中
+     14.ng-readonly 是否只读
+     还有其它的一些内置指令,我们后期会慢慢学习其它的.
+
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+        <div ng-if="false">
+            <p>我是1个粉刷匠,粉刷本领强.111</p>
+        </div>
+        <p>我是1个粉刷匠,粉刷本领强.22222</p>
+
+        <img ng-src="{{imageSrc}}" alt="">
+
+        <form action="#">
+            <input type="text" ng-disabled="true">
+            <input type="checkbox" ng-checked="true">男
+            <br>
+            <select name="" id="">
+                <option value="">中国1</option>
+                <option value="">中国2</option>
+                <option value="">中国3</option>
+                <option value="">中国4</option>
+                <option value="" ng-selected="true">中国5</option>
+                <option value="">中国6</option>
+                <option value="">中国7</option>
+                <option value="">中国8</option>
+                <option value="">中国9</option>
+                <option value="">中国10</option>  
+            </select>
+            <input type="text" ng-readonly="false">
+        </form>
+    </div>
+    <script>
+        var app = angular.module("hmApp",[]);
+        app.controller("demoCtrl",["$scope",function($scope){
+            $scope.imageSrc = "./images/guanguan.jpg";
+        }]);
+    </script>
+</body>
+
+</html>

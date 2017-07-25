@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. $http已经把jsonp跨域的方式封装好了.
+
+    2. 跨域白名单.
+   
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+
+    </div>
+    <script>
+        var app = angular.module("hmApp", []);
+
+        app.config(['$sceDelegateProvider', function ($sceDelegateProvider) {
+            // 设置白名单
+            $sceDelegateProvider.resourceUrlWhitelist(['http://api.map.baidu.com/telematics/v3/weather']);
+        }])
+
+        app.controller("demoCtrl", ["$scope", "$http", function ($scope, $http) {
+            $http({
+                url: "http://api.map.baidu.com/telematics/v3/weather",
+                method: "jsonp",
+                params: {
+                    ak: "0A5bc3c4fb543c8f9bc54b77bc155724",
+                    location: "广州",
+                    output: "json"
+                }
+            }).then(function (res) {
+                console.log(res.data);
+            }).catch(function () {
+                console.log("error!");
+            });
+        }]);
+    </script>
+</body>
+
+</html>

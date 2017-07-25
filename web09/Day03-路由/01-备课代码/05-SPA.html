@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. Single Page Application
+       单页面应用程序.整个网页程序只有一个页面,或者网站的绝大多数功能都只在一个页面上.
+       通过局部刷新技术来实现功能的切换.
+
+    2. 你会很明显发现,这样的网站用户体验极好.它们的界面切换非常流畅，响应很迅速，跟传统的网页明显不一样.
+       所谓单页应用，指的是在一个页面上集成多种功能，
+       甚至整个系统就只有一个页面，所有的业务功能都是它的子模块，
+       通过特定的方式挂接到主界面上。
+       它是AJAX技术的进一步升华，
+       把AJAX的无刷新机制发挥到极致，
+       因此能造就与桌面程序媲美的流畅用户体验。
+
+    3. 猜想实现的方案.
+       3.1 使用锚链接
+       3.2 监听锚链接的跳转.
+       3.3 根据锚点值请求不同的功能做展示.
+
+    4. 自己实现一把.
+       
+
+
+
+    -->
+    <style>
+        ul::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        li{
+            float: left;
+            margin-right: 16px;
+            list-style: none;
+        }
+        li a{
+            font-size: 14px;
+            text-decoration: none;
+            color: #444;
+        }
+        li a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#home">首页</a></li>
+        <li><a href="#my">我的音乐</a></li>
+        <li><a href="#find">发现音乐</a></li>
+    </ul>
+    <div id="content"></div>
+    <script>
+        window.onhashchange = function(){
+            var hash =window.location.hash.slice(1);
+            var url = hash + ".html";
+            var xhr = new XMLHttpRequest();
+            xhr.open("get","./music/"+url);
+            xhr.send();
+            xhr.onreadystatechange =function(){
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    document.getElementById("content").innerHTML = xhr.responseText;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

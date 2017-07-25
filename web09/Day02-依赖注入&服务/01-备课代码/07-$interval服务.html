@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. $interval服务.
+       作用: 每隔指定的时间做指定的事情.
+       这是1个函数.
+        var app = angular.module("hmApp",[]);
+        app.controller("demoCtrl",["$scope","$interval",function($scope,$interval){
+            $interval(function(){$scope.now = new Date();},1000);
+        }]);
+
+
+    2. 停止计时器
+       $interval函数有一个返回值.
+       调用$interval的cancel函数.传入返回值就可以停止该计时器.
+        var app = angular.module("hmApp",[]);
+        app.controller("demoCtrl",["$scope","$interval",function($scope,$interval){
+            var flag = $interval(function(){$scope.now = new Date();},1000);
+            $scope.stop =function(){
+                $interval.cancel(flag);
+            }
+        }]);
+
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+        北京时间:{{now|date:"yyyy-MM-dd HH:mm:ss"}}
+        <button ng-click="stop()">停止</button>
+    </div>
+    <script>
+        var app = angular.module("hmApp",[]);
+        app.controller("demoCtrl",["$scope","$interval",function($scope,$interval){
+            var flag = $interval(function(){$scope.now = new Date();},1000);
+            $scope.stop =function(){
+                $interval.cancel(flag);
+            }
+        }]);
+    </script>
+</body>
+</html>

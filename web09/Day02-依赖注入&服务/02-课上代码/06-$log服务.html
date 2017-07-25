@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. $log服务.
+       1.1 $log是1个对象.
+       1.2 功能: 提供更加个性化的控制台输出.
+
+    2. $log.debug()方法. 我们可以使用一句代码让其失效.
+       
+   
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+       
+    </div>  
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope","$log",function ($scope,$log) {
+            $log.error("这是error输出的信息!"); //输出的是错误格式的信息.
+
+            $log.debug("这是debug输出的信息!");//输出的格式与console.log()无区别.
+
+            $log.info("这是info输出的信息");//输出的格式与console.log()无区别.
+            $log.log("这是log输出的信息");//输出的格式与console.log()无区别.
+
+            $log.warn("这是warn输出的信息");//这是警告的格式.
+        }]);
+    </script>
+</body>
+
+</html>

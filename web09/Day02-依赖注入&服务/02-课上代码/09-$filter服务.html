@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. $filter服务.
+       我们早上学习的过滤器: 在视图中过滤数据.
+       $filter服务也是用来处理数据的. 功能和过滤器差不多一样.
+       唯一不一样的是, $filter服务是用在控制器中.
+
+    2. $filter服务 
+       > 函数.
+         参数: 传过滤器的名称.
+         返回值: 又是1个函数.
+
+
+    3. 过滤器是用在视图中的.
+       $filter服务是用在控制器中的.
+
+
+   
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+        
+    </div>  
+
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope","$filter",function ($scope,$filter) {
+            // $scope.now = new Date();
+            // //now不希望现在是视图 我希望在控制器中得到1个格式化的日期.
+            // var date =  $filter("date");
+            // var str =  date($scope.now,"yyyy-MM-dd HH:mm:ss");
+            // console.log(str);
+
+           var currency =   $filter("currency");
+           var data = currency(45.67,"￥",1);
+           console.log(data);
+        }]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. ng不推崇dom操作.
+       视图会自动的根据数据模型的变化而刷新.
+       不需要我们自己去操作dom
+
+    2. 但是总会有时候我们想要去操作dom
+       全局对象angular提供了一个方法. element
+       将原生的dom对象传入.返回个新的对象.
+
+       如果页面上引入了jquery 那么这个对象就是1个完整的jquery对象.
+       如果页面上没有引入jquery 那么这个对象就是1个jqlite 
+       是jquery的1个子集. 包含了jq的一些常用的方法.
+
+
+
+
+       
+   
+    -->
+    <style>
+        .box{
+            width: 50px;
+            height: 50px;
+            background-color: hotpink;
+        }
+    </style>
+</head>
+<!-- <script src="./lib/jquery.min.js"></script> -->
+<script src="./lib/angular.min.js"></script>
+<body ng-app="hmApp">
+
+    <div class="box"></div>
+
+    <div ng-controller="demoCtrl">
+       
+    </div>  
+    <script>
+        var app = angular.module("hmApp", []);
+
+        var box = angular.element(document.querySelector(".box"));
+
+        box.animate({width:100,height:100},2000);
+
+        app.controller("demoCtrl", ["$scope", function ($scope) {
+          
+        }]);
+    </script>
+</body>
+
+</html>

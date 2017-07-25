@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. $http服务 是AngularJS提供的用于发送Ajax请求的服务. 这是1个函数.
+
+    2. 使用方法.
+       函数传入1个对象,通过键值对配置请求参数.
+            url: 请求地址
+            method:请求方式 get/post
+            params:{} 请求方式为get时,使用这个传递参数. 值为1个对象,使用键值对指定参数.
+            data: {} 请求方式为post时,使用这个传递参数. 值为1个对象,使用键值对指定参数.
+            headers:{} 以键值对的方式设置请求头信息
+        然后链式编程点出then()方法.
+        该方法传入两个回调函数. 
+            第1个回调函数,请求成功的时候执行.参数info  info.data拿到服务器返回的数据.
+            第2个回调函数,请求失败的时候执行.
+        $http({
+            通过对象键值对的形式设定请求参数
+        }).then(function(info){
+            请求成功的时候执行.info.data拿到返回的数据.
+        },function(){
+            请求失败的时候执行
+        });
+
+    3. get请求实例.
+       学生列表.
+
+
+    4. get请求带参数实例.
+
+
+
+       
+       
+
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+        <button ng-click="testGet()">get请求</button>
+        <button ng-click="testGetWithParams()">get请求带参数</button>
+        <ul>
+            <li ng-repeat="stu in stus">姓名:{{stu.name}}----------年龄:{{stu.age}}-----------成绩:{{stu.score}}</li>
+        </ul>
+    </div>
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope", "$http", function ($scope, $http) {
+            $scope.testGet = function () {
+                $http({
+                    url: './php/stus.php',
+                    method: 'get'
+                }).then(function (info) {
+                    $scope.stus = info.data;
+                }, function () {
+
+                });
+            };
+            $scope.testGetWithParams = function () {
+                $http({
+                    url: './php/get.php',
+                    method: 'get',
+                    params:{
+                        name:"jack",
+                        age:18
+                    }
+                }).then(function (info) {
+                    console.log(info.data);
+                }, function () {
+
+                });
+            }
+        }]);
+    </script>
+</body>
+
+</html>

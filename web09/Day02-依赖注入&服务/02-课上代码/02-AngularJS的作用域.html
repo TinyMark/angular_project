@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 一个模块中可以创建多组MVC角色.
+
+    2. 相互独立的控制器/视图 它们的$scope是相互独立的.
+
+    3. 视图之间也可以存在一个嵌套的关系.
+       父控制器中的数据可以在子控制器中访问.
+       
+   
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl1">
+        {{name}} {{age}}
+    </div>
+    <hr>
+    <div ng-controller="demoCtrl2">
+        {{age}}
+    </div>
+
+
+    <div ng-controller="fatherCtrl">
+        {{lesson}}
+        <div ng-controller="sonCtrl">
+              {{lesson}}
+        </div>
+    </div>
+
+
+    <script>
+        var app = angular.module("hmApp", []);
+
+
+        app.controller("demoCtrl1", ["$scope", function ($scope) {
+            $scope.name = "jack";
+        }]);
+
+        app.controller("demoCtrl2", ["$scope", function ($scope) {
+            $scope.age = 19;
+        }]);
+
+
+        app.controller("fatherCtrl", ["$scope", function ($scope) {
+            $scope.lesson =  "AngularJS";
+        }]);
+        app.controller("sonCtrl", ["$scope", function ($scope) {
+           
+        }]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. $http服务.
+       > 是AngularJS内置的一个用来发起Ajax异步请求的服务.
+       > 这是1个函数.
+       
+    2.使用
+      参数:是1个对象,以键值对的方式来设定发起请求的信息.
+           url:指定请求的路径
+           method:指定请求的方式 get/post
+
+       再使用链式编程的方式点1个then函数出来.
+       传入两个回调. 第1个回调在成功的时候执行.第2个回调在失败的时候执行.
+
+                    第1个回调:有1个参数.这个参数.data可以拿到服务器返回的数据.
+     
+                    
+
+    
+   
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+       
+    </div>  
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope","$http",function ($scope,$http) {
+            $http({
+                url:"./php/stus.php",
+                method:"post"
+            }).then(function(res){
+                console.log(res.data);
+            },function(){
+                console.log("error");
+            });
+        }]);
+    </script>
+</body>
+
+</html>

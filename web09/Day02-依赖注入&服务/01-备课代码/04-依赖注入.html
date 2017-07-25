@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 什么叫依赖?
+       
+
+    2. 如何解决依赖?
+       
+    
+    3. angularJS中解决依赖的方式 -- 依赖注入
+       angularJS中提供了很多很多的模块/服务.
+       比如: $scope $log $http 等...
+       而这些服务 默认情况下,是不能直接使用的.
+       是不能在控制器等其它地方使用的.
+       要使用的话,必须要依赖这些服务才可以的.
+       AngularJS使用依赖注入的方式来解决依赖关系.
+       将服务注入到控制器中,那么控制器和其关联的视图就可以使用这个服务了.
+
+    4. 行内式注入.
+       比如,AngularJS提供了一个服务叫做$scope，这个服务的功能是用来在控制器和视图中共享数据的.
+       我们要使用它的话,就必须将其注入到控制器中.
+       在创建控制的时候,like this:
+       app.controller("与控制器管理的视图",[
+                "需要注入的服务名称1",
+                "需要注入的服务名称2",
+                "需要注入的服务名称3",...,
+                function(注入形参1,注入形参2,注入形参3,...){
+                    在控制器中就可以使用注入的服务了.
+
+       }]);
+                                                    形参名称可以随意,前面的服务会按照顺序注入
+                                                    为了保证代码的可读性.
+                                                    建议参数名和要注入的服务名保持一致.
+       app.controller("demoCtrl",["$scope","$http",function($scope,$http){ 
+           在控制器中就可以使用$scope和$http服务了.
+       }])
+
+       这样的注入方式叫做 行内式注入.
+
+    
+    5. 推断式注入
+       不需要主动说明那些服务需要注入,直接在控制器函数的形参写上要注入的服务名
+                                    angularJS会认为函数形参名称就是要注入的服务.
+                                    所以这样的方式注入,必须保证形参名和要注入的服务名称一致才可以.
+       app.controller("demoCtrl",function($scope,$http){
+
+       });
+       
+       存在的问题：代码混淆的时候,会修改函数形参的名称.所以会出现问题。
+       推荐使用行内式注入.
+       
+
+
+
+    
+
+
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+
+    </div>
+    <script>
+        var app = angular.module("hmApp",[]);
+        app.controller("demoCtrl",["$scope","$http",function($scope,$http){
+            //这个时候才可以是以注入的服务
+        }]);
+
+        app.controller("demoCtrl",function($scope,$http){
+            //这个时候才可以是以注入的服务
+        });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1.所谓的单向数据绑定,指的就是在控制器中制造数据,然后在视图显示的过程.
+    2.而这以流程我们前面也已经学过了.
+      $scope是一个很有意思的对象.
+      a. 每一个控制器都有这么1个对象,并且相互独立(暂时这么认为) 
+      b. 控制器和与之关联的视图都可以访问这个$scope对象.  
+      c. 所以,控制器和视图可以利用$scope对象来传递模型数据.
+      d. 在视图中.直接写属性名就可以访问
+         在控制器中 需要写$scope.属性名.
+    3.控制器负责制造数据.将制造好的数据存储到$scope对象中.
+      $scope.xx = yy;
+    4.在视图中 使用绑定符号{{}}将控制器存储到$scope中的数据模型显示.
+    --------------------------------------------------------------
+    5. ng-bind指令.
+       作用: 绑定数据,作用和{{}}一致
+             {{}}是ng-bind的简写形式.
+       虽然ng-bind是{{}}的原生形式,但是很明显,大多数时候使用{{}}更方便.
+       <p>大家好,我叫{{name}},我今年{{age}}岁了</p>
+
+    6. {{}}闪烁问题
+
+    7. 解决闪烁问题,为标签加1个指令ng-cloak
+       原理: 生成1段css代码,将其隐藏 加载完成后 再显示.
+    
+
+
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+<body ng-app="hmApp"> 
+    
+    <div ng-controller="demoCtrl">
+        <p ng-cloak>{{user.name}}</p>
+        <p ng-cloak>{{user.info}}</p>
+        
+    </div>
+  
+    <script>
+        var app = angular.module("hmApp",[]);
+        app.controller("demoCtrl",["$scope",function($scope){
+            $scope.user = {
+                name:"杰克.王",
+                info:"跟着我一起摇摆起来,一起摇摆吧.安哥拉"
+            };
+            
+        }]);
+    </script>
+</body>
+</html>

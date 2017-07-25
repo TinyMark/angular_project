@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. ng-model 指令作用于表单元素.
+       在其中声明1个变量.
+       ng-model="val"
+
+
+    2. 使用ng-model声明的变量.具有如下特点
+        > 表单元素的值如果发生了变化. 这个变量的值也会跟着一起发生变化.
+        > 这个变量的值如果发生了变化,=这个表单元素的值也会跟着一起发生变化.
+
+    3. 使用ng-model声明的变量 其实是声明在$scope中的.
+       所以,可以在与视图关联的控制器中访问.
+
+       
+   
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+       <input type="text" ng-model="val">
+       <h1>{{val}}</h1>
+       <button ng-click="demo()">按钮</button>
+    </div>  
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope", function ($scope) {
+            $scope.demo = function(){
+                $scope.val = "rose";
+            };
+        }]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 跨域请求.
+        Ajax请求不支持跨域的.
+        基于浏览器的同源策略.
+        安全.
+
+    2. jsonp的方式来解决跨域请求的问题.
+       
+
+       虽然ajax不支持跨域的.
+       但是有一个标签叫做script,这个标签的src属性本来的作用是用来引入1个外部的js文件.
+       并且这个src属性天然支持跨域的.
+
+       CDN: 内容分发网络.
+
+       我们使用的第三方插件,如果使用的特别多.
+       那么就意味着我们要引入很多的js外部文件.
+       这样子就会对服务器的压力特别大.
+
+       有一些第三方的机构，很"好心"
+       他们架设了很多的服务器. 将一些常用的第三库存在他们的服务器上.
+       jQuery.js
+
+
+    3. script标签的src属性,.是不是只能请求js文件呢?
+       不是的.src属性可以请求任意类型的文件.
+       无论请求的是什么类型的文件 都会将请求回来的数据作为js代码执行.
+
+
+    4. 利用script标签的src属性发起跨域请求.
+
+       4.1> 准备1个函数. 这个函数名为demo 并且有1个参数.
+
+       4.2> 服务器端要求请求的时候,必须要传递1个函数名称过来.
+            callback
+
+       4.3> 服务器正常处理数据.
+            最终服务器返回的数据的格式:
+            函数名(真正的数据)  demo(数据)
+            返回.
+            '
+       4.4> 浏览器拿到返回的数据.会将其作为js代码执行.
+            而返回的数据是可以作为js代码执行的
+            其实就会调用我们之前准备的那个demo函数.
+            参数就是服务器真正返回的数据。
+            所以 我们在demo函数中 处理服务器返回的数据.
+
+
+        jsonp 
+         
+    5. jsonp这种跨域解决方案必须要服务器支持才可以.
+
+
+       
+
+
+    -->
+
+
+    <script>
+        function getWeather() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("get", "http://api.map.baidu.com/telematics/v3/weather?ak=0A5bc3c4fb543c8f9bc54b77bc155724&location=广州&output=json");
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+        }
+
+
+        function demo(data) {
+           console.log(data);
+        }
+
+
+</script>
+
+    <script src="http://api.map.baidu.com/telematics/v3/weather?ak=0A5bc3c4fb543c8f9bc54b77bc155724&location=广州&output=json&callback=demo"></script>
+   
+</head>
+
+<body>
+    <button onclick="getWeather()">请求天气</button>
+</body>
+
+</html>

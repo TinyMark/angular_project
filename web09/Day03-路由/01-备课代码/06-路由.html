@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+        <style>
+        .menu::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .menu li{
+            float: left;
+            margin-right: 16px;
+            list-style: none;
+        }
+        .menu li a{
+            font-size: 14px;
+            text-decoration: none;
+            color: #444;
+        }
+        .menu li a:hover{
+            text-decoration: underline;
+        }
+    </style>
+    <!--
+     1. 单页面应用程序的原理:
+        通过hashchange事件监听到锚点的变化，
+        进而可以实现为不同的锚点显示不同的视图，
+        单页面应用就是基于这一原理实现的。
+
+    2. AngularJS已经帮我们把这一原理以路由的形式进行了封装。
+       1.2版本之前,路由功能是包含在AngularJS的核心代码中的.
+       之后,便独立出来.
+       所以,如果要使用AngularJS的路由功能,需要下载路由包
+       angular-route.js
+
+    3. 创建模块应用,需要注意的是,我们现在创建的模块要使用到路由功能.
+       所以,我们创建的模块要依赖于ngRoute模块.
+
+    4. 路由需要进行配置才可以使用.
+       配置$routeProvider
+
+       该provider提供了
+       when()方法 设置匹配的路由规则的处理方案
+         第1个参数: 字符串 要匹配的路由.
+         第2个参数: 参数是1个对象,
+                   以键值对的形式指定匹配路由后的处理方案
+                   templateUrl: 请求的资源地址.
+
+       在页面上指定1个ng-view属性,请求过来的页面会被现实到这个标签上.
+       默认情况下:angularJS的锚链接以 #!开头.
+
+       还提供了一个otherwise方法.
+       当所有的路由规则都没有匹配到的时候,
+       就执行这个处理.该方法只有1个参数是1个对象.
+
+
+    5. 配置锚点值得前置符号.
+       配置$locationProvider
+       其有一个方法叫做.hashPrefix方法,用来配置锚点值的前置符号.默认是叹号!
+       你可以为其配置自定义的符号.
+       设置设置一个空串.
+       app.config(['$locationProvider',function ($locationProvider) {
+            $locationProvider.hashPrefix('');//不设置前置 #/index
+            //$locationProvider.hashPrefix('@');设置前置 #@/index
+       }]);
+
+    6. 为什么AngularJS默认的锚链接前置是#!？
+       Google的SEO
+
+    7. 
+
+       
+
+
+    -->
+    <script src="./libs/angular.min.js"></script>
+    <script src="./libs/angular-route.min.js"></script>
+</head>
+<body ng-app="hmApp">
+     <ul class="menu">
+        <li><a href="#!/home">首页</a></li>
+        <li><a href="#!/my">我的音乐</a></li>
+        <li><a href="#!/find">发现音乐</a></li>
+     </ul>
+     <div ng-view></div>
+    <script>
+        var app = angular.module("hmApp",["ngRoute"]);
+        app.config(["$routeProvider",function($routeProvider){
+            $routeProvider.when("/home",{
+                templateUrl:"./music/home.html"
+            }).when("/my",{
+                templateUrl:"./music/my.html"
+            }).when("/find",{
+                templateUrl:"./music/find.html"
+            }).otherwise({
+                templateUrl:"./music/home.html"
+            });
+        }]);
+    </script>
+</body>
+</html>

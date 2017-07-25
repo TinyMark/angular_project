@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. ng-init指令.
+       作用: 可以通过这个指令初始化变量的值.而不用在控制器中初始化.
+
+       它只适合用来初始化一些简单的数据.
+       一些复杂的数据的初始化还是放在控制器中比较合适的.
+
+
+       
+   
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl" ng-init="age=18">
+       <span>{{name}}</span>
+       <span>{{age}}</span>
+    </div>  
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope", function ($scope) {
+            $scope.name = "jack";
+        }]);
+    </script>
+</body>
+
+</html>

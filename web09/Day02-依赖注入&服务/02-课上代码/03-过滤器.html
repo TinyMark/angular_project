@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 过滤器.
+       对数据进行处理.
+       用在视图中.
+       {{原本要显示的数据|过滤器名称:参数}}
+
+    2. date过滤器
+       {{time|date} 默认格式化出来的格式是美国的日期格式.
+       {{time|date:"yyyy-MM-dd HH:mm:ss"}} 自定义格式.
+       y： year 年
+       M: 月
+       d: 号
+       H: 24小时制的小时
+       h: 12小时制的小时
+       m: 分钟
+       s: 秒
+       分隔符是可以自定义的.
+
+
+    3. currency 货币过滤器.
+       {{price|currency}} 默认显示美刀符号.
+       {{price|currency:"￥"}} 自定义货币符号 默认保留两位
+       {{price|currency:"￥":1}} 保留指定位数的小数 四舍五入
+
+       
+
+    4. uppercase 转换为大写
+       lowercase 转换为小写
+
+
+
+    5. 截取数组中指定位数的元素.
+       limitTo 过滤器
+       {{arr|limitTo:n}}
+       如果n是正数 显示前面的n个元素
+       如果n是负数 就显示后面的n个元素.
+
+    6. number过滤器
+       将number类型的数据保留指定的位数显示.
+       {{num|number:2}} 保留两位小数
+
+    7. json过滤器
+       {{person|json}} 将person对象转换为1个json字符串显示.
+       在显示绑定1个对象的时候 如果我们没有调json过滤器
+       系统自动、会调这个过滤器
+
+
+    8.orderBy过滤器.
+      对数组进行排序后再显示.
+
+      {{students|orderBy:"age"}} 按照age为参照物进行排序.默认情况下是升序.
+      {{students|orderBy:"age":true}} 第2个参数是指定排序升降
+                                      true 降序
+                                      false 升序
+      {{arr|orderBy}} 当arr是1个基本数据类型的数组的时候 不需要指定参照属性
+                       默认是升序
+     {{arr|orderBy:null:true}} 指定基本数据类型的升序或者降序.
+
+
+                        
+    9. filter 过滤器
+       选定数组中符合条件的元素.                        
+
+
+       
+       
+       
+       
+   
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+        <ul>
+            <li>{{time|date:"yyyy年MM月dd号 HH点mm分ss秒"}}</li>
+            <li>价格:{{price|currency:"￥":1}}</li>
+            <li>{{msg1|uppercase}}</li>
+            <li>{{msg2|lowercase}}</li>
+            <li>{{arr|limitTo:-2}}</li>
+            <li>{{str|limitTo:-2}}</li>
+            <li>{{num|number:2}}</li>
+            <li>{{person}}</li>
+            <li>{{students|orderBy:"age":true}}</li>
+            <li>{{arr|orderBy:null:true}}</li>
+            <li>{{students|filter:{age:16,gender:"男"} }}</li>
+        </ul>
+    </div>
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope", function ($scope) {
+            $scope.time = new Date;
+            $scope.price = 3.567;
+            $scope.msg1 = "i love you";
+            $scope.msg2 = "I HATE YOU";
+            $scope.arr = [10,3, 20, 30, 40, 67,50, 60, 70, 80, 90, 100];
+            $scope.str = "this is good!";
+            $scope.num = 12.457;
+            $scope.person = {
+                id: 1,
+                name: "杰克王",
+                age: 19
+            };
+            $scope.students = [
+                { id: 1, name: '小明', gender: '男', age: 18 },
+                { id: 2, name: '小花', gender: '女', age: 16 },
+                { id: 3, name: '小强', gender: '男', age: 14 },
+                { id: 4, name: '小东', gender: '男', age: 16 },
+                { id: 5, name: '小常', gender: '女', age: 20 }
+            ];
+        }]);
+    </script>
+</body>
+
+</html>

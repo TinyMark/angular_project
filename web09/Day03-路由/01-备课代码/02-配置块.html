@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+     1. AngularJS提供了很多内置的服务.
+        不同的服务具备不同的功能.
+        AnuglarJS允许我们对这些服务进行配置.来实现一些更个性化的需求.
+
+     2. 模块对象提供了一个config方法,这个方法就允许我们对内置服务进行配置.
+        参数是1个数组:
+        前面的元素写上需要配置的模块.
+        最后1个元素是1个回调函数，将需要配置的模块按照顺序以回调函数的形参注入,
+        在函数中就可以对这些服务进行配置.
+
+        特别注意: 配置的时候,应该配置服务对应的Provider。
+        比如.如果要配置$log服务,那么就应该配置$logProvider。
+        app.config(["$logProvider",function($logProvider){
+            $logProvider.debugEnabled(false);//关闭$log服务的debug方法.
+        }]);
+
+
+    3. 配置$filter服务.
+       $filter服务提供了很多内置的过滤器.
+       在配置阶段,我们可以往其中新增过滤器.
+
+       $filterProvider
+       每一个Provider都有不同的方法对服务进行不同的配置.
+       我们只会讲解常用的,其它的需要你自己查文档.
+
+       该Provider有一个 register 方法允许加入我们的过滤器.
+
+
+    4. 配置jsonp跨域白名单.
+       $sceDelegateProvider.resourceUrlWhitelist();
+
+
+
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+<body ng-app="hmApp">
+    
+    <div ng-controller="demoCtrl"></div>
+
+    <script>
+        var app = angular.module("hmApp",[]);
+        app.config(["$logProvider",function($logProvider){
+            $logProvider.debugEnabled(false);//关闭$log服务的debug方法.
+        }]);
+
+        app.controller("demoCtrl",function($log,$scope){
+            $log.debug("this is debug message!");
+            $log.warn("hhhhh");
+        });
+
+
+
+    </script>
+</body>
+</html>

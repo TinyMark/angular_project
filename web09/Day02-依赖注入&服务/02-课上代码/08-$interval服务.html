@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+
+    1. $interval服务
+       > 函数
+       > 每隔一定的时间就做指定的事情.
+
+    2. 用法
+       参数1: 回调
+       参数2: 间隔时间
+
+    3. 停止定时器
+       
+       $interval() 返回1个定时器的id
+       $interval.cancel() 传入定时器的id 就可以把这个id对应的定时器给停掉.
+
+    -->
+    
+</head>
+<script src="./lib/angular.min.js"></script>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+       {{now|date:"yyyy-MM-dd HH:mm:ss"}}
+       <br>
+       <button ng-click="stop()">停止</button>
+    </div>  
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope","$interval",function ($scope,$interval) {
+            $scope.now = new Date();
+            var intervalId = $interval(function(){
+                $scope.now = new Date();
+            },1000);
+
+
+            $scope.stop = function(){
+                $interval.cancel(intervalId);
+            }
+
+        }]);
+    </script>
+</body>
+
+</html>

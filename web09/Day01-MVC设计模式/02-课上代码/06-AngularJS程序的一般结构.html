@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 引包
+    2. ng-app指定ng范围
+    3. 创建模块
+    4. 创建控制器
+    5. 指定与控制器相关联的视图 ng-controller
+    6. 控制器制造数据.将制造好的数据存储到$scope对象中.
+    7. 在与控制器相关联的视图中使用{{}}数据绑定符号来显示数据.
+    
+
+    8. ng-repeat指令.
+       用于重复生成标签.
+       值：遍历1个数组.  item in arr
+       
+    
+
+    9: 一旦数据模型中的数据发生了变化.
+       那么视图也会跟着一起发生变化.   
+       视图是根据数据模型的变化而实时变化的.
+
+
+
+    -->
+    <script src="./lib/angular.min.js"></script>
+</head>
+
+<body ng-app="hmApp">
+
+    <div ng-controller="demoCtrl">
+        <table>
+            <caption>学生信息</caption>
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+            </tr>
+            <tr ng-repeat="item in stus">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.gender}}</td>
+                <td>{{item.age}}</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <script>
+        var app = angular.module("hmApp", []);
+
+        app.controller("demoCtrl", ["$scope", "$timeout", function ($scope, $timeout) {
+            $scope.stus = [
+                { id: 1, name: '小明', gender: '男', age: 18 },
+                { id: 2, name: '小花', gender: '女', age: 16 },
+                { id: 3, name: '小强', gender: '男', age: 14 },
+                { id: 4, name: '小东', gender: '男', age: 19 },
+                { id: 5, name: '小常', gender: '女', age: 20 }
+            ];
+
+            $timeout(function () {
+                $scope.stus.push({
+                    id: 6, name: '小明1111', gender: '男', age: 118
+                });
+            },3000);
+        }]);
+    </script>
+</body>
+
+</html>

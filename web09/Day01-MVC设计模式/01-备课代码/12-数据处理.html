@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. ng-repeat指令
+       作用:循环生成标签,并绑定数据.
+       1.1 遍历数组.
+            <ul>
+                <li ng-repeat="name in data" ng-bind="name"></li>
+            </ul>
+       1.2 遍历对象
+            <li ng-repeat="item in user"></li> item指的是每一个属性的值.
+            <li ng-repear="(key,value) in user"></li> key指属性名,value指属性值.
+    2. ng-switch指令
+       作用：与js原生语法switch-case类似
+            判断预设遍历的值,只生成匹配到的元素.
+                <div ng-switch on="tag">
+                    <div ng-switch-when="html">HTML</div> 
+                    <div ng-switch-when="css">css</div>    
+                    <div ng-switch-when="js">js</div>    
+                    <div ng-switch-when="jQuery">jQuery</div>    
+                    <div ng-switch-when="angualr">angualr</div>    
+                    <div ng-switch-when="vue">vue</div>       
+                </div>  
+        ng-switch on /可省略掉on
+            ng-switch-when
+            ng-switch-default
+           
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl1">
+        <ul>
+            <li ng-repeat="name in data" ng-bind="name"></li>
+        </ul>
+    </div>
+    <div ng-controller="demoCtrl2">
+        <ul>
+            <li ng-repeat="(key,value) in user">{{key}}={{value}}</li>
+        </ul>
+    </div>
+    <div ng-controller="demoCtrl3">
+        <div ng-switch on="tag">
+            <div ng-switch-when="html">HTML</div> 
+            <div ng-switch-when="css">css</div>    
+            <div ng-switch-when="js">js</div>    
+            <div ng-switch-when="jQuery">jQuery</div>    
+            <div ng-switch-when="angualr">angualr</div>    
+            <div ng-switch-when="vue">vue</div>       
+        </div>    
+    </div>
+    <script>
+        var app = angular.module("hmApp",[]);
+        app.controller("demoCtrl1",["$scope",function($scope){
+            $scope.data = ["jack","rose","lilei","lily","poly"];
+        }]);
+        app.controller("demoCtrl2",["$scope",function($scope){
+            $scope.user = {
+                nickName:"highven",
+                realName:"王绚文",
+                age:18,
+                height:175
+            };
+        }]);
+         app.controller("demoCtrl3",["$scope",function($scope){
+             $scope.tag = "css";
+        }]);
+    </script>
+</body>
+</html>

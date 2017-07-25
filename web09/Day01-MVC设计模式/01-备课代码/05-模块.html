@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--  1. 定义应用  -->
+<html lang="en" ng-app="hmApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./libs/angular.min.js"></script>
+</head>
+<body>
+    <!--4. 将视图与控制器相互关联 ng-controller -->
+    <div ng-controller="demoCtrl">
+        <!--6.将模型数据绑定到视图中 -->
+        <h1>{{name}}</h1>
+        <p>{{info}}</p>
+    </div>
+
+    <script>
+        //2.创建模块.
+        var app = angular.module("hmApp",[]);
+        //3.创建控制器
+        app.controller("demoCtrl",["$scope",function($scope){
+            //5.制造数据模型.将其附在$scope上.
+            $scope.name = "小明";
+            $scope.info = "我在黑马跟着老王学习前端开发"
+        }]);
+    </script>
+</body>
+</html>

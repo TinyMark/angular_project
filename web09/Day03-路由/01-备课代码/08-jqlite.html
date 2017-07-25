@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. Angular不推荐我们进行DOM操作.
+       我们只需要把所有的精力集中在数据的处理上面.
+       数据模型一旦变化.
+       angularJS会帮助我们自动的去更新DOM。
+
+    2. 但是有的时候,我们还是仍然希望进行DOM操作.
+       angular全局对象提供了一个element方法.
+       这个方法传入1个DOM元素.可以将其转换为1个jQuery对象.
+
+    3. 需要特别注意的是:
+       如果页面上我们引入了jQuery库,那么这个对象就是一个完整的jQuery对象.
+       如果页面上没有引入jQuery库,那么这个对象就是一个轻量版的jq对象
+       AngularJS内部封装了一个轻量级的jq对象,只支持jq中常见的一些方法.
+
+
+
+    -->
+    <style>
+        #cctv{
+            background-color: hotpink;
+            width: 100px;
+            height: 100px;
+        }
+        .sep{
+            border: 2px solid #000;
+        }
+    </style>
+    <script src="./libs/jquery.min.js"></script>
+    <script src="./libs/angular.min.js"></script>
+   
+</head>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+        <div id="cctv"></div>
+    </div>
+    <script>
+        var app = angular.module("hmApp",[]);
+        app.controller("demoCtrl",["$scope",function($scope){
+            var box = angular.element(document.querySelector("#cctv"));
+            //box.addClass("sep");
+            box.animate({
+                width:200,
+                height:200
+            },1000);
+        }])
+    </script>
+</body>
+</html>

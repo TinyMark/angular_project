@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TodoMVC</title>
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/app.css">
+	<script src="../libs/angular.min.js"></script>
+</head>
+
+<body ng-app="todosApp">
+	<section class="todoapp" ng-controller="listCtrl">
+		<header class="header">
+			<h1>todos</h1>
+			<form ng-submit="doSubmit()">
+				<input class="new-todo" placeholder="列出你要完成的事项" autofocus ng-model="listItem">
+			</form>
+		</header>
+		<section class="main">
+			<input class="toggle-all" type="checkbox">
+			<ul class="todo-list">
+				<li ng-repeat="item in data" ng-class="{completed:item.isFinish}">
+					<div class="view">
+						<input class="toggle" type="checkbox" ng-click="toggle(item.id)">
+						<label>{{item.itemName}}</label>
+						<button class="destroy" ng-click="remove(item)"></button>
+					</div>
+					<input class="edit" value="Rule the web">
+				</li>
+			</ul>
+		</section>
+		<footer class="footer">
+			<span class="todo-count">还有<strong>{{left}}</strong>项未完成</span>
+			<button class="clear-completed" ng-click="clear()">清除已完成</button>
+		</footer>
+	</section>
+	<footer class="info">
+	</footer>
+	<script>
+		var app = angular.module("todosApp", []);
+		app.controller("listCtrl", ["$scope", function ($scope) {
+			$scope.data = [];
+			$scope.left = 0;
+			var id = 0;
+			$scope.getLeft = function(){
+				$scope.left = 0;
+				for(var index in $scope.data){
+					if($scope.data[index].isFinish == false){
+						$scope.left++;
+					}
+				}
+			}
+			
+			$scope.doSubmit = function () {
+				var itemName =$scope.trim($scope.listItem);
+				if(itemName == "")  return;
+				var item = {
+					id:id++,
+					itemName:itemName,
+					isFinish:false
+				};
+				$scope.data.push(item);
+				$scope.listItem = "";
+				$scope.getLeft();
+			};
+			$scope.trim = function (str) {
+				return str.replace(/^(\s|\u00A0)+/, '').replace(/(\s|\u00A0)+$/, '');
+			};
+			$scope.toggle =function(id){
+				for(var index in $scope.data){
+					if($scope.data[index].id == id){
+						$scope.data[index].isFinish = !($scope.data[index].isFinish);
+					}
+				}
+				$scope.getLeft();
+			};
+			$scope.remove =function(item){
+				var index =$scope.data.indexOf(item);
+				$scope.data.splice(index,1);
+			};
+			$scope.clear =function(){
+				var newArr = [];
+				for(var index in $scope.data){
+					if($scope.data[index].isFinish == false){
+						newArr.push($scope.data[index]);
+					}
+				}
+				$scope.data = newArr;
+			}
+		}]);
+	</script>
+</body>
+
+</html>

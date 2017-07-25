@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        onload = function(){
+            var ipt = document.getElementById("ipt");
+            var content = document.getElementById("content");
+            ipt.onkeyup = function(){
+                content.innerText = ipt.value;
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="ipt">
+    <h1 id="content"></h1>
+</body>
+</html>

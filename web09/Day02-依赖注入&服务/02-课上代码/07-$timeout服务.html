@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. $timeout服务.
+       > 是一个函数.
+       > 指定的时间之后,做指定的事情.
+
+
+    2. $timeout服务的使用.
+       $timeout();
+       参数1: 回调
+       参数2: 时间.
+   
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+       {{name}}
+    </div>  
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope","$timeout",function ($scope,$timeout) {
+            $scope.name = "jack";
+            $timeout(function(){
+                 $scope.name = "rose";
+            },3000);
+        }]);
+    </script>
+</body>
+
+</html>

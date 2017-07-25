@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 什么是依赖？
+       bootstrap 依赖于 jquery
+
+
+    2. 如何解决?
+       在bootstrap将jq引入. 这就是解决依赖的一种方式.
+
+       A功能的实现是基于B功能的.
+       那么我们就说: A依赖于B
+
+       解决依赖关系Web:
+       script:src 将依赖的包引进来.
+
+
+    3. AngularJS内部提供了很多很多的服务.
+       $scope
+       $http
+       $timeout
+       $interval
+       $log
+       .....
+       什么叫做服务: 一个服务就是一个相对独立的功能.
+       这些服务.在MVC角色中是不能直接使用的.
+
+
+       $scope这个服务:功能是来存储数据.
+
+       如果我们要实现控制器到视图的数据传递.就必须要使用ng提供的这个$scope服务.
+       没有这个服务 就实现不了.
+       要实现这个功能 就必须要使用这个服务.
+
+       所以.,我们就说. 这个控制器依赖于$scope这个服务.
+
+
+    4. AngularJS解决这种依赖的方案: 依赖注入
+
+       将控制器要依赖的服务注入到控制器中.
+       让这个控制器拥有这个服务
+       那么就可以使用这个服务了.
+
+
+    5. 行内式注入
+        创建控制器的时候,第2个参数是1个数组.
+        数组的前面写上要注入到这个控制器中的服务的名称.
+
+        最后1个参数是1个回调函数.,这个回调函数就是我们的控制器函数了.
+        使用形参的方式将要注入到控制器中的服务注入进来.
+
+        这个时候形参就代表要注入的服务.
+
+
+        注意:
+        > 数组前面的元素表示要依赖的服务的名称 必须要保证这些服务是真实存在的.
+        > 形参的名字可以自定.建议形参名和服务名保持一致 方便=代码阅读.
+        > 可以注入多个服务.但是在注入给形参的时候 是按照顺序来注入的.
+       
+
+    6. 推断式注入.
+       app.controller();
+       参数1:控制器的名称
+
+       参数2:直接写一个回调函数
+             参数直接写上要注入的服务的名称
+             ng就会根据形参的名字将服务注入.
+
+        app.controller("demoCtrl2",function($scope,$log){
+             
+        });
+
+    7. 我们必须使用行内式注入.
+
+        代码压缩和混淆.
+        
+        为了减少代码体积. 
+        > 会将代码中的空格换行去掉.
+        > 将长变量替换为短变量.
+          
+       
+       
+       
+   
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+      
+    </div>  
+
+    <div ng-controller="demoCtrl2">
+        {{name}}
+    </div>  
+    <script>
+        var a = 10;
+        var itheimaStudentNumberweb09 = "itcat16888"
+        console.log(itheimaStudentNumberweb09);
+
+
+        var app = angular.module("hmApp", []);
+
+        app.controller("demoCtrl",["$scope","$log",function(a,b){
+           
+        }]);
+
+        app.controller("demoCtrl2",function(a,b){
+           a.name = "又在打瞌睡的小男孩!";
+        });
+        
+
+
+    </script>
+</body>
+
+</html>

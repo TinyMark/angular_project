@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1.如果你觉得AngularJS提供的这些指令,仍然不够强大.
+      你希望可以有一些更加强大或者更加符合你自己的要求的指令
+      AngulaJS提供了一套完善的机制允许你可以自定义指令.
+    2.模块对象提供了一个 directive 方法 这个方法就可以自定义指令.
+      第1个参数: 自定义指令的名称.tag就按照tag用. hmTag要按照hm-tag用.
+      第2个参数: 回调函数.当执行这个指令的时候,就会执行这个回调函数.
+                该回调函数需要按照要求返回1个对象.
+                restrict: ECMA -自定义指令的类型.
+                          E: 元素
+                          C: class
+                          M: 注释
+                          A: 属性.
+                          推荐: AE
+                replace: boolean值 是否替代原有标签.
+                template: 模板 自定义指令将被替换成什么.
+                templateUrl: 加载外部文件.
+                link: 解析该指令的时候做的事情.
+                      三个参数scope, element, attrs
+                      attrs[自定义属性名]可以拿到自定义属性的值.
+                      在这里可以为该元素添加点击事件.
+    
+                          
+
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+
+<body ng-app="hmApp">
+
+    <div hm-tag="jackloverose">中国人在这里</div>
+
+    <script>
+        var app = angular.module("hmApp", []);
+        app.directive("hmTag", function () {
+            return {
+                restrict: "A",
+                replace: true,
+                //template: "<h1>我是1个粉刷匠</h1>"
+                //templateUrl:'./inlcude演示/top.html'
+                link: function (scope, element, attrs) {
+                    //
+                    element.on("click",function(){
+                        console.log("我被点了吗?");
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

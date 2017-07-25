@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. $filter服务
+       作用: 在控制器中格式化数据.   这是1个函数.
+       过滤器在视图中格式化数据.
+       $filter服务在控制器中格式化数据.
+       他们之间的使用非常的相像.
+    
+    2. 使用
+       var fun = $filter('过滤器名称');   之前学习的过滤器名称 date,currency,upcase...
+                               该函数的返回值是1个函数.返回的函数就具备传入的过滤器的功能.
+       var val = fun(待处理数据,参数1,参数2,...); 返回值为处理完成的数据.
+
+
+
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+        {{now}}
+    </div>
+    <script>
+        var app = angular.module("hmApp",[]);
+        app.controller("demoCtrl",["$scope","$filter",function($scope,$filter){
+            var date = $filter("date");
+            $scope.now = date(new Date(),"yyyy-MM-dd HH:mm:ss");
+        }]);
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/angular.min.js"></script>
+    <!--
+    1. ng-include指令 
+       功能: 将其它页面包含到当前页面中来.
+
+       要包含的文件的路径: 还要用单引号引起来.
+
+    2. 其原理是以ajax异步请求的方式请求页面内容.
+       所以你要以服务器的方式打开页面才会有效果。
+
+
+    3. 原生的disabled属性是有歧义的.
+
+    4. ng-disabled 取值bool 这样更有意义.
+       
+    ------------------------------------
+        
+
+    -->
+</head>
+<body ng-app="hmApp">
+    
+    <div ng-controller="demoCtrl">
+
+        <input type="text" ng-disabled="false" >
+
+    </div>
+
+
+
+
+    <script>
+        var app = angular.module("hmApp",[]);
+        app.controller("demoCtrl",["$scope",function($scope){
+
+        }]);
+    </script>
+</body>
+</html>

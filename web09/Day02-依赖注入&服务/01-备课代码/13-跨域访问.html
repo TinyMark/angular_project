@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 在发送Ajax请求的时候,基于安全考虑,浏览器不允许跨域访问.
+
+    2. 解决方案.
+       script标签的src属性具备天然的跨域属性.
+       该属性可以跨域请求,并将返回的内容作为js代码进行执行.
+
+    3. jsonp
+       在浏览器端准备1个函数.
+       使用script标签的src属性,去请求跨域的地址.
+       请求的时候,带上我们的请求参数以及函数名称.
+
+       服务器在接收到请求之后,根据参数进行处理,
+       最后,将结果当做参数传入函数中.
+       "登录成功"
+       callback("登录成功"); 
+       将这个字符串返回.
+       浏览器拿到之后,将其作为js代码执行.
+       我们在函数中写上处理结果的代码就ok了.
+
+       jsonp需要服务器支持.
+
+
+    4. 自己封装jsonp函数.
+
+
+    5. 心知天气.
+       
+
+
+
+
+    -->
+    <script src="./libs/core-min.js"></script>
+    <script src="./libs/enc-base64-min.js"></script>
+     <script src="./libs/hmac-min.js"></script>
+     <script src="./libs/sha1-min.js"></script>
+</head>
+<body>
+    
+
+
+    <script>
+        // var xhr = new XMLHttpRequest();
+        // xhr.open("get","http://www.baidu.com");
+        // xhr.send();
+        // xhr.onreadystatechange =function(){
+        //     if(xhr.readyState == 4 && xhr.status == 200){
+        //         console.log(xhr.responseText)
+        //     }
+        // }
+
+
+        function myJsonp(url,opts,callback){
+            //1.拼接url
+            url += "&";
+            for(var key in opts){
+                url += key + "=" + opts[key] + "&";
+            }
+            //2.产生1个随机的方法名.
+            var callbackName = "hmjsonp_";
+            callbackName += Math.random().toString().slice(2);
+            window[callbackName] =callback;
+            //3.拼接callback
+            url += "callback="+callbackName;
+            //4.创建script标签
+            var script = document.createElement("script");
+            script.src = url;
+            document.body.appendChild(script);
+        }
+
+        var UID = "U8931955FB";
+        var ts = Math.floor((new Date()).getTime() / 1000);
+        var str = "ts="+ts+"&uid=" + UID; // 参数字符串
+        var KEY = "rlo92bfptduyrx7b";
+        var result = CryptoJS.HmacSHA1(str, KEY);
+        var sig = result.toString(CryptoJS.enc.Base64);
+        str = str + "&sig=" + sig; // 最终构造的已加密的参数字符串
+
+        var API = "https://api.seniverse.com/v3/weather/now.json?location=shenzhen&";
+        var url = API + str;
+        console.log(url);
+        myJsonp(url,{},function(res){
+            console.log(res);
+        });
+
+        // myJsonp(
+        //     "http://api.map.baidu.com/telematics/v3/weather",
+        //     {
+        //         ak:"0A5bc3c4fb543c8f9bc54b77bc155724",
+        //         location:"深圳",
+        //         output:"json"
+        //     },
+        //     function(response){
+        //         console.log(response);
+        //     }
+        // );
+
+    </script>
+</body>
+</html>

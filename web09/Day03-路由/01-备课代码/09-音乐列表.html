@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .music {
+            width: 400px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+        }
+
+        .music nav {
+            height: 40px;
+            line-height: 40px;
+            background-color: #000;
+            display: flex;
+            text-align: center;
+        }
+
+        .music nav a {
+            text-decoration: none;
+            color: #fff;
+            flex: 1;
+        }
+
+        .music nav a:hover {
+            background-color: red;
+        }
+
+        li {
+            line-height: 30px;
+        }
+
+        li:hover {
+            background-color: #eee;
+        }
+    </style>
+    <script src="/libs/angular.min.js"></script>
+    <script src="/libs/angular-route.min.js"></script>
+</head>
+
+<body>
+    <div class="music" ng-app="musicApp">
+        <nav>
+            <a href="#!/1">情歌</a>
+            <a href="#!/2">红歌</a>
+            <a href="#!/3">民歌</a>
+            <a href="#!/4">摇滚</a>
+
+        </nav>
+        <ol ng-view>
+        </ol>
+    </div>
+
+    <script>
+        var app = angular.module("musicApp",["ngRoute"]);
+        app.config(["$routeProvider",function($routeProvider){
+            $routeProvider.when('/:type',{
+                templateUrl:"./template/tempList.html",
+                controller:"listCtrl"
+            });
+        }]);
+        app.controller("listCtrl",["$scope","$http","$routeParams",function($scope,$http,$routeParams){
+            var type =$routeParams.type;
+            $http({
+                url:"./php/list.php",
+                method:"get",
+                params:{
+                    type:type
+                }
+            }).then(function(info){
+                $scope.songs = info.data;
+            });
+        }]);
+    </script>
+</body>
+
+</html>

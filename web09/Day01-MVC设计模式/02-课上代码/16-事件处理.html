@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 原生的js事件绑定的缺点:
+       全局污染.
+
+    2. AngularJS的事件处理机制.
+       2.1 单击事件.
+           为要绑定单击事件的元素设定1个ng-click指令.
+           值为要调用的函数 dmeo()
+
+           这个函数在控制器中定义在$scope=中.
+
+       2.2 事件的套路.
+           onclick  ng-click
+           onmouseover   ng-mouseover
+           ....
+            指令的名称: ng-
+
+       2.3 使用指令的方式来绑定事件.
+           > 按照套路确定指令的名称.
+           > 指令的值是1个函数调用
+           > 把这个函数定义在控制器中的$scope中.
+
+
+      -->
+    <script src="./lib/angular.min.js"></script>
+</head>
+
+<body ng-app="hmApp">
+    
+    <div ng-controller="demoCtrl">
+        <input type="button" value="按钮" ng-click="demo()">
+        <br>
+        <div style="width:100px;height:100px;background-color:red" ng-mouseover="over()" ng-mouseleave="leave()"></div>
+    </div>
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope", function ($scope) {
+            $scope.demo = function(){
+                console.log("你好呀,打瞌睡的小男孩!");
+            };
+            $scope.over = function(){
+                console.log("小男孩,你进来打瞌睡了?");
+            };
+            $scope.leave = function(){
+                console.log("小男孩,你走了?");
+            }
+        }]);
+    </script>
+
+
+</body>
+
+</html>

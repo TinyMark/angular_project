@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 过滤器:在视图中绑定数据的时候,使用过滤器来格式化要显示的数据.
+       {{name|过滤器名称:参数}}
+       使用竖线 | 调用过滤器
+       使用冒号 : 为过滤器传递参数.
+    2. date 日期过滤器
+      {{now|date:"yyyy-MM-dd HH:mm:ss"}}
+      | 代表调用过滤器.date过滤器.
+      : 传递参数,格式化字符串.
+      y 年
+      M 月
+      d 日
+      h 12小时制小时
+      H 24小时制小时
+      m 分
+      s 秒
+
+    3.currency 货币符号过滤器
+      默认显示美元符号.
+      通过传递参数指定显示的货币符号和保留的小数位数.
+      {{price|currency:"￥":1}}
+
+    4. lowercase转换为小写过滤器.
+       {{msg|lowercase}}
+
+    5. uppercase 转换为大写过滤器.
+
+    6. limitTo过滤器
+       截取数组/字符串中的元素.
+       {{data|limitTo:2}}
+       正数：从左往右截取指定的个数
+       负数: 从右往左截取指定的个数.
+       也可以操作字符串.
+
+    7. number 处理数字 指定保留的小数位数.
+       {{num|number:2}}
+       
+    8. json 将对象转换为json字符串.
+       {{obj|json}}
+       不调用json过滤器的话,angularJS也会自动帮我们调用.
+
+    9. orderBy 将数组中的元素进行排序.
+       如果数组元素是对象,可以指定参照的属性.
+       也可以指定排序的升降关系.
+       默认升序 true就变成了降序.
+       {{stus|orderBy:'age':true}}
+
+    10. filter 过滤器
+       过滤出数组中符合条件的元素.
+       {{stus|filter:{age:17} }} 过滤出数组中年龄为17的对象
+       注意: 参数对象必须要和后面的绑定符号保持至少1个空格.
+
+
+
+
+
+      
+    
+     
+
+       
+
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+       <span>现在是北京时间{{now|date:"yyyy-MM-dd HH:mm:ss"}}</span><br>
+       <span>这件商品的价格是{{price|currency:"￥":1}}</span><br>
+       <span>{{msg|lowercase}}</span><br>
+       <span>{{msg1|uppercase}}</span><br>
+       <span>{{data|limitTo:2}}</span><br>
+       <span>{{num|number:2}}</span><br>
+       <span>{{obj}}</span><br>
+       <spsn>{{stus|orderBy:'age':true}}</spsn><br>
+       <span>{{stus|filter:{age:17} }}</span>
+
+    </div>
+    <script>
+        var app = angular.module("hmApp",[]);
+        app.controller("demoCtrl",["$scope",function($scope){
+            $scope.now = new Date();
+            $scope.price = 113.45;
+            $scope.msg = "THIS IS ITCAST!";
+            $scope.msg1 = "hello,everyone!";
+            $scope.data = [10,120,30,240,150,60,70,380,390,1100];
+            $scope.num = 12.345;
+            $scope.obj = {name:"jack",age:18,score:99};
+            $scope.stus = [
+                {name:"jack",age:11,score:99},
+                {name:"jack",age:13,score:99},
+                {name:"jack",age:19,score:99},
+                {name:"jack",age:17,score:99},
+                {name:"jack",age:2,score:99},
+                {name:"jack",age:31,score:99}
+            ];
+        }]);
+    </script>
+</body>
+</html>

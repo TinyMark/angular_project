@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content{
+            height: 500px;
+            background-color: #0094ff;
+            width: 100%;
+        }
+        .menu{
+            float: left;
+        }
+        .sub{
+            float: right;
+        }
+    </style>
+    <script src="../libs/angular.min.js"></script>
+</head>
+<body ng-app>
+    <div class="top" ng-include="'./top.html'"></div>
+    <div class="content">
+        <div class="menu" ng-include="'./menu.html'"></div>
+        <div class="sub">
+            这里是内容.......
+        </div>
+    </div>
+    <div class="bottom" ng-include="'./bottom.html'"></div>
+</body>
+</html>

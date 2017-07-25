@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. post请求实例.
+
+    2. $http服务发送post请求传递数据的格式默认是 Request Payload
+       这种格式的数据 php无法使用$_POST获取.
+       为了使我们post的数据php可以使用$_POST获取.所以我们修改发送数据的类型.
+       通过headers修改为form data
+
+       需要注意的是,这个时候需要data给1个字符串就可以.
+
+
+
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+        <h1>系统登录</h1>
+        <table>
+            <tr>
+                <td>用户名:</td>
+                <td><input type="text" ng-model="uName"></td>
+            </tr>
+            <tr>
+                <td>密 码:</td>
+                <td><input type="password" ng-model="pwd"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right"><input type="button" value="登录" ng-click="login()"></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope", "$http", function ($scope, $http) {
+            $scope.login =function(){
+                $http({
+                    url:"./php/post.php",
+                    method:"post",
+                    data:"uName="+$scope.uName+"&pwd="+$scope.pwd,
+                    headers:{
+                        "Content-Type":"application/x-www-form-urlencoded"
+                    }
+                }).then(function(info){
+                    console.log(info);
+                }).catch(function(){
+
+                });
+            }
+        }]);
+    </script>
+</body>
+
+</html>

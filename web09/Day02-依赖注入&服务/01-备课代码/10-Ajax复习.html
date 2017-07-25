@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 浏览器向服务器发送数据时,发送的数据是分很多种类型的.
+      
+       1.1 跟在URL后面的数据 like this
+           http://www.baidu.com/index.html?q=itcast
+           这样发送的数据的类型是 QueryString.
+           浏览器get方法发送数据默认的数据的类型就是QueryString
+           php服务器端使用. $_GET['filed_name'] 拿到传递过来的数据.
+
+       1.2 post发送数据的时候.
+           浏览器默认的发送的数据的类型是.Request Payload
+           这个时候,php服务端通过$_POST[]是无法获取发送过来的数据.
+
+           设置请求头数据类型为: application/x-www-form-urlencoded  
+           这个时候,发送的数据的类型是: Form Data
+           在php服务端,使用$_POST[]就可以拿到post到服务器的数据.
+    -->
+</head>
+<body>
+    <h1>系统登录</h1>
+    <table>
+        <tr>
+            <td>用户名:</td><td><input type="text" id="uName"></td>
+        </tr>
+         <tr>
+            <td>密 码:</td><td><input type="password" id="pwd"></td>
+        </tr>
+         <tr>
+            <td colspan="2" align="right"><input type="button" value="登录" id="btnlogin"></td>
+        </tr>
+    </table>
+    <script>
+        var btnLogin = document.querySelector("#btnlogin");
+        btnLogin.onclick =function(){
+            var uName =document.querySelector("#uName").value;
+            var pwd =document.querySelector("#pwd").value;
+            var xhr = new XMLHttpRequest();
+            xhr.open('post','./php/login.php');
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xhr.send("uName="+uName+"&pwd="+pwd);
+            xhr.onreadystatechange =function(){
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    console.log(xhr.responseText);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

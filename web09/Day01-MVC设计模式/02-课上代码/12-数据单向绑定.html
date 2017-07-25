@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @charset "UTF-8";
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak,
+        .ng-hide:not(.ng-hide-animate) {
+            display: none !important;
+        }
+
+        ng\:form {
+            display: block;
+        }
+
+        .ng-animate-shim {
+            visibility: hidden;
+        }
+
+        .ng-anchor {
+            position: absolute;
+        }
+    </style>
+    <!--
+    1. 数据的单向绑定.
+       在控制器中制造数据,把数据存储在数据模型($scope)中.
+       然后在与控制器相关联的视图中使用{{}}来绑定要显示的数据.
+       这个过程 就叫做数据的单向绑定.
+
+    2. ng-bind指令.
+       就是用来在视图绑定数据的. {{}}本质上ng-bind指令的简写.
+       平时我们使用最多的还是{{}}
+       因为很多时候 还是使用 {{}}方便
+        <span>大家好,我叫{{data.name}},我学习的第一门课是:{{data.lessons[0]}}</span>
+
+    3. 闪烁.
+       3.1 闪烁的原因: 浏览器解析的时候.会把{{}}当做文本直接输出到页面上.
+                      当ng介入的时候,确定{{}}里面的数据 
+                      让后再显示正常的数据.
+
+       3.2 ng-bind可以解决这个问题
+
+       3.3 使用ng-cloak指令解决闪烁的问题.
+           先将元素隐藏. 当数据确定以后再显示出来.
+           
+       
+       3.4 终极解决方案.
+         
+
+    
+       
+   
+    -->
+  <script src="./lib/angular.min.js"></script>
+</head>
+
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+        <p ng-cloak>{{data.name}}</p>
+        <ul>
+            <li ng-repeat="item in data.lessons" ng-cloak>{{item}}</li>
+        </ul>
+        <!-- <span>大家好,我叫{{data.name}},我学习的第一门课是:{{data.lessons[0]}}</span> -->
+        <br>
+ 
+    </div>
+
+    
+     
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope", function ($scope) {
+            $scope.data = {
+                name: "小强",
+                lessons: ["html", "css", "js", "jquery"]
+            }
+        }]);
+    </script>
+</body>
+
+</html>
