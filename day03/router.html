@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+        } */
+
+        .menu::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .menu {
+            background-color: #333;
+            line-height: 60px;
+            padding-left: 40px;
+        }
+
+        .menu li {
+            float: left;
+            margin-right: 16px;
+            list-style: none;
+        }
+
+        .menu li a {
+            font-size: 18px;
+            text-decoration: none;
+            color: #ccc;
+        }
+
+        .menu li a:hover {
+            color: #999;
+        }
+    </style>
+    <script src="./libs/angular.min.js"></script>
+    <script src="./libs/angular-route.min.js"></script>
+</head>
+
+<body ng-app="hmApp">
+    <ul class="menu">
+        <li><a href="#!/home">首页</a></li>
+        <li><a href="#!/my">我的音乐</a></li>
+        <li><a href="#!/find">发现音乐</a></li>
+    </ul>
+    <div ng-view></div>
+    <script>
+        var app = angular.module("hmApp", ["ngRoute"]);
+        app.config(["$routeProvider", function ($routeProvider) {
+            $routeProvider.when('/', {
+                redirectTo: './music/home.html'
+            }).when("/home", {
+                templateUrl: "./music/home.html"
+            }).when("/my", {
+                templateUrl: "./music/my.html"
+            }).when("/find", {
+                templateUrl: "./music/findNew.html",
+                controller: "findCtrl"
+            }).otherwise({
+                templateUrl: "./music/404.html"
+            });
+        }]);
+
+        app.controller("findCtrl", ["$scope", function ($scope) {
+            $scope.songs = [
+                { name: "回娘家1", singer: "宋祖英1" },
+                { name: "回娘家2", singer: "宋祖英2" },
+                { name: "回娘家3", singer: "宋祖英3" },
+                { name: "回娘家4", singer: "宋祖英4" },
+                { name: "回娘家5", singer: "宋祖英5" }
+            ];
+        }]);
+        app.controller("myCtrl", ["$scope", "$routeParams", function ($scope, $routeParams) {
+            console.log($routeParams);
+        }]);
+    </script>
+</body>
+
+</html>

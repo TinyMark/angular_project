@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 我们之前学习了很多AngularJS内置的服务.
+       如果我们之前要使用这些服务来实现功能.
+       > 创建控制器 - 视图
+       > 再将服务注入
+       > 在控制器中使用这些服务.
+
+
+    2. 需求:直接使用这个服务 而不想创建控制器.
+
+    3. 模块对象提供了一个方法--run.
+       功能: 这个方法就可以直接使用服务 而不必依赖于控制器.
+       参数: 是1个数组.
+             数组的前面写上你要使用的服务的名称.
+             最后1个元素是1个回调 使用形参将这些服务注入使用.
+
+   
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+       {{name}}
+    </div>  
+    <script>
+        var app = angular.module("hmApp", []);
+
+        app.run(["$log","$http",function($log,$http,$scope){
+            $log.debug("hi..........");
+            $http();
+            $scope.name =  "jack";
+        }]);
+
+
+        app.controller("demoCtrl", ["$scope", function ($scope) {
+          
+        }]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 内置指令.
+       自定义指令
+       内置过滤器
+       自定义过滤器
+       内置服务
+       自定义服务.
+    
+    2. 自定义服务
+       2.1 模块对象提供了一个方法： factory
+           功能: 允许我们使用这个方式来自定义一个服务.
+       2.2 参数1: 自定义服务的名称.
+           参数2: 数组 前面写上我们自定义服务需要依赖的别的服务的名称.
+                  最后1个元素是1个回调.通过形参将需要依赖的服务注入.
+                 这个回调函数在这个服务被注入的时候会自动的调用.
+
+                 因为服务是代表一个功能
+                 所以,这个回调函数一般情况下是返回1个对象或者1个函数.
+
+                 在控制器中 注入的服务就是这个回调返回的东西.
+
+    3. AngularJS的一般规范:
+       不要将功能封装为1个单独的函数.
+       而是将功能封装为一个服务.
+
+
+    4. 调用模块对象的service方法来自定义服务.
+       4.1 参数1: 自定义服务的名称.
+           参数2: 数组 前面写上我们自定义服务需要依赖的别的服务的名称.
+                  最后1个元素是1个回调.通过形参将需要依赖的服务注入.
+
+           不同的是,不需要手动的返回1个对象或者1个函数.
+           而是用this关键字来往服务中加属性.
+           他会自动的返回.
+          
+        工厂方法和构造函数的区别
+
+       
+   
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+
+    </div>
+    <script>
+        var app = angular.module("hmApp", []);
+
+        app.service("gzitcast", ["$filter", function ($filter) {
+            this.now = function () {
+                return $filter("date")(new Date(), "yyyy-MM-dd HH:mm:ss");
+            };
+            this.format = function () {
+                return $filter("date")(new Date(), format);
+            }
+        }]);
+
+        app.factory("heima", ["$filter", function ($filter) {
+            return function () {
+                return $filter("date")(new Date(), "yyyy-MM-dd HH:mm:ss");
+            }
+        }]);
+
+
+        app.factory("itcast", ["$filter", function ($filter) {
+            return {
+                now: function () {
+                    return $filter("date")(new Date(), "yyyy-MM-dd HH:mm:ss");
+                },
+                format: function (format) {
+                    return $filter("date")(new Date(), format);
+                }
+            };
+        }]);
+
+
+        app.controller("demoCtrl", ["$scope", "heima", "itcast", "gzitcast", function ($scope, heima, itcast, gzitcast) {
+            console.log(heima());
+            console.log(itcast.now());
+            console.log(itcast.format("HH:mm:ss"));
+
+
+            console.log(gzitcast);
+        }]);
+    </script>
+</body>
+
+</html>

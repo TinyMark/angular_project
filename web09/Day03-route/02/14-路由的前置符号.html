@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. AngularJS的锚链接默认情况下必须要以#!开头
+       否则就无法使用它来实现spa
+
+
+    2. 为什么AngularJS默认的锚链接要以#!开头.
+       SPA缺点: SEO不好.搜索引擎可能会无法识别spa的内容.
+       搜索引擎无法很好的做到网页的收录。
+       因为我们的内容是单独的.
+
+    3. Google的搜索引起就针对SPA做了优化.
+       #!开头的锚链接Google会认为这就是1个SPA
+       他就会追进去收录.
+
+    4. 自定义路由前置符号.
+       $locationProvider进行配置 就可以设置路由的前置符号.
+       
+    5. 锚链接必须要加1个/  ---  #/home   #/find
+       如果不加/ ng会自动的帮你加1个 /
+
+
+    
+    -->
+    <script src="./lib/angular.min.js"></script>
+    <script src="./lib/angular-route.js"></script>
+</head>
+
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+       
+    </div>  
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope", function ($scope) {
+          
+        }]);
+    </script>
+</body>
+
+</html>

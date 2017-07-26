@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        nav {
+            height: 40px;
+            background-color: yellowgreen;
+        }
+
+        nav a {
+
+            line-height: 40px;
+        }
+    </style>
+    <!--
+    1. when方法第2个参数.
+       是1个对象.通过键值对的方式来设定路由匹配成功后要做的事情.
+
+       1.1 templateUrl 要请求的资源的路径.将数据请求回来后,作为ng-view的子元素.
+                       如果ng-view有子元素 会先删除其子元素.再将请求回来的数据作为其子元素.
+       1.2 template    字符串形式的模板.        
+       1.3 redirectTo  路由跳转.
+       1.4 controller  指定与请求回来的视图相关联的控制器.
+
+    -->
+    <script src="./lib/angular.min.js"></script>
+    <script src="./lib/angular-route.js"></script>
+</head>
+
+<body ng-app="hmApp">
+    <nav>
+        <a href="#home">首页</a>
+        <a href="#my">我的音乐</a>
+        <a href="#find">发现音乐</a>
+    </nav>
+    <div id="content" ng-view></div>
+
+    <script>
+        var app = angular.module("hmApp", ["ngRoute"]);
+        app.config(["$locationProvider",function($locationProvider){
+            $locationProvider.hashPrefix("");
+        }]);
+        app.config(["$routeProvider", function ($routeProvider) {
+            $routeProvider.when("/home", {
+                templateUrl: "./music/home.html"
+            }).when("/my", {
+                templateUrl: "./music/my.html"
+            }).when("/find", {
+                templateUrl: "./music/findNew.html",
+                controller: "findCtrl"
+                //template: "<h1>我是中国人 哈哈哈</h1>"
+            }).when("/", {//"  / 代表空路由 "
+                //templateUrl:"./music/home.html"
+                redirectTo: "/home"
+            })
+                .otherwise({
+                    templateUrl: "./music/404.html"
+                });
+        }]);
+
+
+        app.controller("findCtrl", ["$scope", function ($scope) {
+            $scope.songs = [
+                { name: "走进新时代1", singer: "宋祖英1" },
+                { name: "走进新时代2", singer: "宋祖英1" },
+                { name: "走进新时代3", singer: "宋祖英1" },
+                { name: "走进新时代4", singer: "宋祖英1" },
+                { name: "走进新时代5", singer: "宋祖英1" },
+                { name: "走进新时代6", singer: "宋祖英1" },
+                { name: "走进新时代7", singer: "宋祖英1" },
+                { name: "走进新时代8", singer: "宋祖英1" },
+            ];
+        }]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        nav {
+            height: 40px;
+            background-color: yellowgreen;
+        }
+
+        nav a {
+
+            line-height: 40px;
+        }
+    </style>
+    <!--
+    1. 带参数的路由
+       使用路由跳转的时候,后面可以带QueryString类型的参数
+       #/my?name=jack&age=18
+       路由如果带了QueryString类型的参数 它是不影响路由的匹配的.
+        #/my?name=jack&age=18 这个路由仍然可以匹配到 /my
+
+    2. 这个时候,地址栏虽然编程了 index.html#/my?name=jack&age=18
+       这个时候,浏览器仍然不会向服务器发起任何请求.
+       因为这是锚链接跳转.
+
+
+    3. 虽然参数不会被提交到服务器,
+       但是这个路由参数
+       可以在与请求后来的视图相关联的控制器中拿到.
+
+     
+
+       
+    
+     -->
+    <script src="./lib/angular.min.js"></script>
+    <script src="./lib/angular-route.js"></script>
+</head>
+
+<body ng-app="hmApp">
+    <nav>
+        <a href="#/home">首页</a>
+        <a href="#/my?name=jack&age=18">我的音乐</a>
+        <a href="#/find">发现音乐</a>
+    </nav>
+    <div id="content" ng-view></div>
+
+
+    <script>
+        var app = angular.module("hmApp", ["ngRoute"]);
+        app.config(["$locationProvider", function ($locationProvider) {
+            $locationProvider.hashPrefix("");
+        }]);
+        app.config(["$routeProvider", function ($routeProvider) {
+            $routeProvider.when("/home", {
+                templateUrl: "./music/home.html"
+            }).when("/my", {//#/my?name=jack&age=18
+                templateUrl: "./music/my.html",
+                controller: "myCtrl"
+            }).when("/find", {
+                templateUrl: "./music/find.html",
+            }).when("/", {
+                redirectTo: "/home"
+            }).otherwise({
+                templateUrl: "./music/404.html"
+            });
+        }]);
+
+        app.controller("myCtrl",["$scope","$routeParams",function($scope,$routeParams){
+            console.log($routeParams.name);
+             console.log($routeParams.age);
+        }]);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 跨域白名单是需要在配置阶段进行设置的.
+
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+       
+    </div>  
+    <script>
+        var app = angular.module("hmApp", []);
+
+        app.config(["$sceDelegateProvider",function($sceDelegateProvider){
+            $sceDelegateProvider.resourceUrlWhitelist([
+                "http://www.baidu.com",
+                "http://www.itheima.com",
+                "http://xuanwen.wang"
+            ]);
+        }]);
+
+        app.controller("demoCtrl", ["$scope", function ($scope) {
+          
+        }]);
+    </script>
+</body>
+
+</html>

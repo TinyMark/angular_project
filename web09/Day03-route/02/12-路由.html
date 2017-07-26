@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        nav {
+            height: 40px;
+            background-color: yellowgreen;
+        }
+
+        nav a {
+
+            line-height: 40px;
+        }
+    </style>
+    <!--
+    1. 现单页面的原理
+       通过hashchange事件监听到锚点的变化，
+       进而可以实现为不同的锚点显示不同的视图，
+       单页面应用就是基于这一原理实现的。
+    
+    2. AngularJS对这一实现原理进行了封装，将锚点的变化封装成路由（Route）
+       AngularJS的路由功能是以插件的形式存在的.
+
+       在1.2版本之前 路由功能和核心文件是在一起的.
+       从1.2版本开始,路由功能就是以ng插件的形式存在的.
+
+       所以,我们首先要下载它.
+    
+
+    3. AngularJS的路由功能的基本使用.
+       3.0 AngularJS默认情况下锚点值必须要以#!开始.
+       3.1 下载路由插件 并引入到页面上.
+       3.2 在创建模块的时候,因为我们创建的模块要使用到路由的功能.
+           所以要指定我们创建的模块要依赖于"ngRoute"模块.
+       3.3 对路由进行一些配置.锚点值 hash 路由
+           目的: 当路由发生了变化以后,要做的事情.
+           通过配置$routeProvider来进行路由的设定.
+
+           $routeProvider的when方法来进行路由的设定和匹配.
+           参数1:匹配的路由.不需要写这个前缀（#!）
+           参数2:{} 通过键值对来指定匹配成功以后要做的事情.
+                 templateUrl:"" 指定要请求的页面.
+
+           可以链式编程点出多个when方法来匹配多个路由.
+           还可以在最后链式编程点出一个otherwise.
+           代表前面的所有的when都匹配不上的时候,就会执行这个otherwise。
+
+           "/" 这个路由代表空路由. 就是没有路由的情况.
+           
+        3.4 将请求回来的页面,放在ng-view这个指令所在的标签下面.
+
+      
+
+
+           
+
+      
+
+
+    -->
+    <script src="./lib/angular.min.js"></script>
+    <script src="./lib/angular-route.js"></script>
+</head>
+
+<body ng-app="hmApp">
+    <nav>
+        <a href="#!/home">首页</a>
+        <a href="#!/my">我的音乐</a>
+        <a href="#!/find">发现音乐</a>
+    </nav>
+    <div id="content" ng-view></div>
+
+    <script>
+
+        var app = angular.module("hmApp",["ngRoute"]);
+
+        app.config(["$routeProvider",function($routeProvider){
+            $routeProvider.when("/home",{
+                templateUrl:"./music/home.html"
+            }).when("/my",{
+                templateUrl:"./music/my.html"
+            }).when("/find",{
+                 templateUrl:"./music/find.html"
+            }).when("/",{//"  / 代表空路由 "
+                 templateUrl:"./music/home.html"
+            })
+            .otherwise({
+                templateUrl:"./music/404.html"
+            });
+        }]);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .music {
+            width: 400px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+        }
+
+        .music nav {
+            height: 40px;
+            line-height: 40px;
+            background-color: #000;
+            display: flex;
+            text-align: center;
+        }
+
+        .music nav a {
+            text-decoration: none;
+            color: #fff;
+            flex: 1;
+        }
+
+        .music nav a:hover {
+            background-color: red;
+        }
+
+        li {
+            line-height: 30px;
+        }
+
+        li:hover {
+            background-color: #eee;
+        }
+    </style>
+    <script src="./lib/angular.min.js"></script>
+    <script src="./lib/angular-route.js"></script>
+</head>
+
+<body ng-app="hmApp">
+    <div class="music">
+        <nav>
+            <a href="#/songs?type=1">情歌</a>
+            <a href="#/songs?type=2">红歌</a>
+            <a href="#/songs?type=3">民歌</a>
+            <a href="#/songs?type=4">摇滚</a>
+        </nav>
+        <ol ng-view>
+        </ol>
+    </div>
+
+    <script>
+        var app = angular.module("hmApp", ["ngRoute"]);
+
+        app.config(["$locationProvider", function ($locationProvider) {
+            $locationProvider.hashPrefix("");
+        }]);
+
+        app.config(["$routeProvider", function ($routeProvider) {
+            $routeProvider.when("/songs", {
+                templateUrl: "./music/view.html",
+                controller:"songCtrl"
+            });
+        }]);
+
+        app.controller("songCtrl",["$scope","$http","$routeParams",function($scope,$http,$routeParams){
+            //1.取到跳转到视图的时候带的参数.
+            var type = $routeParams.type;
+            //2.发起Ajax请求.
+            $http({
+                url:"./php/list.php",
+                params:{
+                    type:type
+                }
+            }).then(function(res){
+                $scope.songs = res.data;
+            }).catch(function(){
+                console.log("error!");
+            });
+        }]);
+
+    </script>
+</body>
+
+</html>

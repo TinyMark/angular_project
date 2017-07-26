@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. 配置$filter服务.
+   
+    -->
+</head>
+<script src="./lib/angular.min.js"></script>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl">
+       {{msg|firstBig}}
+    </div>  
+    <script>
+        var app = angular.module("hmApp", []);
+        app.config(["$filterProvider",function($filterProvider){
+
+            //register注册.新注册了1个过滤器.
+            $filterProvider.register("firstBig",function(){
+                return function(source){
+                    return source[0].toUpperCase()+source.slice(1);
+                }
+            });
+
+        }]);
+        app.controller("demoCtrl", ["$scope", function ($scope) {
+            $scope.msg = "hello!";
+        }]);
+    </script>
+</body>
+
+</html>
