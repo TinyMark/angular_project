@@ -1,0 +1,907 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Tabs案例 | Introduction</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../Day01-MVC设计模式/13todos.html" />
+    
+    
+    <link rel="prev" href="../Day01-MVC设计模式/11数据处理.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="1.12"
+        data-chapter-title="Tabs案例"
+        data-filepath="Day01-MVC设计模式/12Tabs案例.md"
+        data-basepath=".."
+        data-revision="Sat Jun 24 2017 16:34:10 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="Day01-MVC设计模式/00intro.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/00intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        第一天 MVC设计模式
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="Day01-MVC设计模式/01Angular简介.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/01Angular简介.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Angular简介
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Day01-MVC设计模式/02Angular初体验.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/02Angular初体验.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Angular初体验
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Day01-MVC设计模式/03MVC设计模式.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/03MVC设计模式.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        MVC设计模式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Day01-MVC设计模式/04模块化.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/04模块化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        模块化
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Day01-MVC设计模式/05Angular的基本结构.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/05Angular的基本结构.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        Angular基本结构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="Day01-MVC设计模式/06Angular内置指令.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/06Angular内置指令.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        Angular指令
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="Day01-MVC设计模式/07数据单向绑定.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/07数据单向绑定.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.7.</b>
+                        
+                        Angular数据单向绑定
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="Day01-MVC设计模式/08数据双向绑定.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/08数据双向绑定.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.8.</b>
+                        
+                        Angular数据双向绑定
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Day01-MVC设计模式/09ng-init指令.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/09ng-init指令.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.9.</b>
+                        
+                        ng-init指令
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Day01-MVC设计模式/10Angular事件处理.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/10Angular事件处理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.10.</b>
+                        
+                        Angular事件处理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Day01-MVC设计模式/11数据处理.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/11数据处理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.11.</b>
+                        
+                        数据处理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.12" data-path="Day01-MVC设计模式/12Tabs案例.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/12Tabs案例.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.12.</b>
+                        
+                        Tabs案例
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="Day01-MVC设计模式/13todos.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/13todos.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.13.</b>
+                        
+                        土豆丝案例
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="Day02-依赖注入/00intro.html">
+            
+                
+                    <a href="../Day02-依赖注入/00intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        第二天 依赖注入&amp;服务
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="Day02-依赖注入/01Angular作用域.html">
+            
+                
+                    <a href="../Day02-依赖注入/01Angular作用域.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Angular作用域
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="Day02-依赖注入/02过滤器.html">
+            
+                
+                    <a href="../Day02-依赖注入/02过滤器.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        过滤器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="Day02-依赖注入/03依赖注入.html">
+            
+                
+                    <a href="../Day02-依赖注入/03依赖注入.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        依赖注入
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="Day02-依赖注入/04服务.html">
+            
+                
+                    <a href="../Day02-依赖注入/04服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        内置服务
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="Day02-依赖注入/0401$log服务.html">
+            
+                
+                    <a href="../Day02-依赖注入/0401$log服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.1.</b>
+                        
+                        $log服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="Day02-依赖注入/0402$timeout服务.html">
+            
+                
+                    <a href="../Day02-依赖注入/0402$timeout服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.2.</b>
+                        
+                        $timeout服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="Day02-依赖注入/0403$interval服务.html">
+            
+                
+                    <a href="../Day02-依赖注入/0403$interval服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.3.</b>
+                        
+                        $interval服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="Day02-依赖注入/0404$filter服务.html">
+            
+                
+                    <a href="../Day02-依赖注入/0404$filter服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.4.</b>
+                        
+                        $filter服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="Day02-依赖注入/0405$http服务.html">
+            
+                
+                    <a href="../Day02-依赖注入/0405$http服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.5.</b>
+                        
+                        $http服务
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="Day02-依赖注入/05AngularJS版聊天机器人.html">
+            
+                
+                    <a href="../Day02-依赖注入/05AngularJS版聊天机器人.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        聊天机器人
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="Day02-依赖注入/06天气预报.html">
+            
+                
+                    <a href="../Day02-依赖注入/06天气预报.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        天气预报
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="Day03-路由/00intro.html">
+            
+                
+                    <a href="../Day03-路由/00intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        第三天 路由
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="Day03-路由/01自定义服务.html">
+            
+                
+                    <a href="../Day03-路由/01自定义服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        自定义服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="Day03-路由/02AngularJS执行顺序.html">
+            
+                
+                    <a href="../Day03-路由/02AngularJS执行顺序.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        NG执行顺序
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="Day03-路由/03配置块.html">
+            
+                
+                    <a href="../Day03-路由/03配置块.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        配置块
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="Day03-路由/04运行块.html">
+            
+                
+                    <a href="../Day03-路由/04运行块.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        运行块
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="Day03-路由/05锚链接跳转.html">
+            
+                
+                    <a href="../Day03-路由/05锚链接跳转.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        锚链接跳转
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="Day03-路由/06SPA.html">
+            
+                
+                    <a href="../Day03-路由/06SPA.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        SPA
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="Day03-路由/07AngularJS的路由.html">
+            
+                
+                    <a href="../Day03-路由/07AngularJS的路由.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        AngularJS的路由
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="Day03-路由/08jQlite.html">
+            
+                
+                    <a href="../Day03-路由/08jQlite.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        jqLite
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="Day03-路由/09音乐列表.html">
+            
+                
+                    <a href="../Day03-路由/09音乐列表.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        音乐列表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="Day03-路由/10bower.html">
+            
+                
+                    <a href="../Day03-路由/10bower.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        Bower
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="Day04-豆瓣电影/00intro.html">
+            
+                
+                    <a href="../Day04-豆瓣电影/00intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        第四天 豆瓣电影
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="Day04-豆瓣电影/01WebApi.html">
+            
+                
+                    <a href="../Day04-豆瓣电影/01WebApi.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        WebApi
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Introduction</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="tabs&#x6848;&#x4F8B;">Tabs&#x6848;&#x4F8B;</h1>
+<pre><code class="lang-html"><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">&quot;UTF-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Tab &#x6807;&#x7B7E;<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+        <span class="hljs-tag">body</span> <span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">margin</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">padding</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#F7F7F7</span></span></span>;
+        }</span>
+
+        <span class="hljs-class">.tabs</span> <span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">400px</span></span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">margin</span>:<span class="hljs-value"> <span class="hljs-number">30px</span> auto</span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#FFF</span></span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">border</span>:<span class="hljs-value"> <span class="hljs-number">1px</span> solid <span class="hljs-hexcolor">#C0DCC0</span></span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">box-sizing</span>:<span class="hljs-value"> border-box</span></span>;
+        }</span>
+
+        <span class="hljs-class">.tabs</span> <span class="hljs-tag">nav</span> <span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">40px</span></span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">text-align</span>:<span class="hljs-value"> center</span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">line-height</span>:<span class="hljs-value"> <span class="hljs-number">40px</span></span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">overflow</span>:<span class="hljs-value"> hidden</span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#C0DCC0</span></span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> flex</span></span>;
+        }</span>
+
+        <span class="hljs-tag">nav</span> <span class="hljs-tag">a</span> <span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> block</span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100px</span></span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">border-right</span>:<span class="hljs-value"> <span class="hljs-number">1px</span> solid <span class="hljs-hexcolor">#FFF</span></span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#000</span></span></span>;
+            <span class="hljs-rule"><span class="hljs-attribute">text-decoration</span>:<span class="hljs-value"> none</span></span>;
+        }</span>
+
+        <span class="hljs-tag">nav</span> <span class="hljs-rule"><span class="hljs-attribute">a</span>:<span class="hljs-value">last-child {
+            border-right: <span class="hljs-number">0</span> none</span></span>;
+        }
+
+        <span class="hljs-tag">nav</span> <span class="hljs-tag">a</span><span class="hljs-class">.active</span> <span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#9BAF9B</span></span></span>;
+        }</span>
+
+        <span class="hljs-class">.cont</span> <span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">overflow</span>:<span class="hljs-value"> hidden</span></span>;
+        }</span>
+
+        <span class="hljs-class">.cont</span> <span class="hljs-tag">ol</span> <span class="hljs-rules">{
+            <span class="hljs-rule"><span class="hljs-attribute">line-height</span>:<span class="hljs-value"> <span class="hljs-number">30px</span></span></span>;
+        }</span>
+
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;lib/angular.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span> <span class="hljs-attribute">ng-app</span>=<span class="hljs-value">&quot;hmApp&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tabs&quot;</span> <span class="hljs-attribute">ng-controller</span>=<span class="hljs-value">&quot;TabsCtrl&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">nav</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;javascript:;&quot;</span> <span class="hljs-attribute">ng-click</span>=<span class="hljs-value">&quot;switch(&apos;local&apos;)&quot;</span> <span class="hljs-attribute">ng-class</span>=<span class="hljs-value">&quot;{active:flag==&apos;local&apos;}&quot;</span>&gt;</span>&#x56FD;&#x5185;&#x65B0;&#x95FB;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;javascript:;&quot;</span> <span class="hljs-attribute">ng-click</span>=<span class="hljs-value">&quot;switch(&apos;global&apos;)&quot;</span> <span class="hljs-attribute">ng-class</span>=<span class="hljs-value">&quot;{active:flag==&apos;global&apos;}&quot;</span>&gt;</span>&#x56FD;&#x9645;&#x65B0;&#x95FB;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;javascript:;&quot;</span> <span class="hljs-attribute">ng-click</span>=<span class="hljs-value">&quot;switch(&apos;sport&apos;)&quot;</span> <span class="hljs-attribute">ng-class</span>=<span class="hljs-value">&quot;{active:flag==&apos;sport&apos;}&quot;</span>&gt;</span>&#x4F53;&#x80B2;&#x65B0;&#x95FB;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;javascript:;&quot;</span> <span class="hljs-attribute">ng-click</span>=<span class="hljs-value">&quot;switch(&apos;funny&apos;)&quot;</span> <span class="hljs-attribute">ng-class</span>=<span class="hljs-value">&quot;{active:flag==&apos;funny&apos;}&quot;</span>&gt;</span>&#x5A31;&#x4E50;&#x65B0;&#x95FB;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">nav</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- &#x5224;&#x65AD;key&#x6570;&#x636E;&#x7684;&#x503C; --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">ng-switch</span>=<span class="hljs-value">&quot;flag&quot;</span>&gt;</span>
+            <span class="hljs-comment">&lt;!-- &#x5F53;key&#x503C;funny&#x65F6; --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;cont&quot;</span> <span class="hljs-attribute">ng-switch-when</span>=<span class="hljs-value">&quot;local&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">ol</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x6CB3;&#x5357;&#x518D;&#x6B21;&#x53D1;&#x751F;&#x77FF;&#x96BE;&#xFF0C;&#x6B7B;&#x4F24;&#x4EBA;&#x6570;&#x8D85;&#x7816;&#x77F3;ddddddddddddd&#x8FC7;100dddads<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x79BD;&#x6D41;&#x611F;&#x5728;&#x5168;&#x56FD;&#x7269;&#x519C;&#x5EF6;&#xFF0C;&#x6E29;&#x5BB6;&#x5B9D;&#x6307;&#x793A;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x5357;&#x65B9;&#x5927;&#x65F1;&#xFF0C;&#x519C;&#x4F5C;&#x7269;&#x51CF;&#x4EA7;&#x7EDD;&#x6536;&#x9762;&#x79EF;&#x4E0A;&#x4EA9;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x732A;&#x6D41;&#x611F;&#x5728;&#x5E7F;&#x4E1C;&#x7FA4;&#x4F53;&#x6027;&#x66B4;&#x53D1;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x79BD;&#x6D41;&#x611F;&#x5728;&#x5168;&#x519C;&#x4F5C;&#x7269;&#x7EE7;&#x7EED;&#x8513;&#x5EF6;&#xFF0C;&#x6E29;&#x5BB6;&#x5B9D;&#x6307;&#x793A;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x732A;&#x6D41;&#x611F;&#x5728;&#x5E7F;&#x4E1C;&#x7FA4;&#x4F53;&#x6027;&#x66B4;&#x53D1;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">ol</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+            <span class="hljs-comment">&lt;!-- &#x5F53;key&#x503C;local&#x65F6; --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;cont&quot;</span> <span class="hljs-attribute">ng-switch-when</span>=<span class="hljs-value">&quot;global&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">ol</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x6CB3;&#x611F;&#x5728;&#x751F;&#x77FF;&#x96BE;&#xFF0C;&#x6B7B;&#x4F24;&#x5728;&#x5168;10<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x79BD;&#x6D41;&#x611F;&#x5728;&#x611F;&#x5728;&#x5E7F;1&#x5904;&#x7EE7;&#x7EED;&#x8513;&#x5EF6;&#xFF0C;&#x6E29;&#x5BB6;&#x5B9D;&#x6307;&#x793A;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x5357;&#x65B9;&#x5927;&#x65F1;&#xFF0C;&#x519C;&#x4F5C;&#x7269;&#x51CF;&#x4EA7;&#x7EDD;&#x6536;&#x9762;&#x79EF;&#x4E0A;&#x4EA9;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x732A;&#x6D41;&#x611F;&#x5728;&#x5E7F;&#x5728;&#x5168;&#x56FD;&#x66B4;&#x53D1;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x79BD;&#x6D41;&#x611F;&#x5728;&#x5168;&#x56FD;&#x591A;&#x5904;&#x7EE7;&#x7EED;&#x8513;&#x5EF6;&#xFF0C;&#x6E29;&#x5BB6;&#x5B9D;&#x6307;&#x793A;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x5357;&#x65B9;&#x5927;&#x65F1;&#xFF0C;&#x519C;&#x4F5C;&#x7269;&#x51CF;&#x4EA7;&#x7EDD;&#x6536;&#x9762;&#x79EF;&#x4E0A;&#x4EA9;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x732A;&#x6D41;&#x611F;&#x5728;&#x5E7F;&#x4E1C;&#x7FA4;&#x4F53;&#x6027;&#x66B4;&#x53D1;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">ol</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+            <span class="hljs-comment">&lt;!-- &#x5F53;key&#x503C;sports&#x65F6; --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;cont&quot;</span> <span class="hljs-attribute">ng-switch-when</span>=<span class="hljs-value">&quot;sport&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">ol</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x6CB3;&#x5357;&#x518D;&#x6B21;&#x53D1;&#x751F;&#x77FF;&#x96BE;&#xFF0C;&#x6B7B;&#x4F24;&#x4EBA;&#x6570;&#x8D85;&#x8FC7;100<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x79BD;&#x6D41;&#x611F;&#x5728;&#x5168;&#x56FD;&#x591A;&#x5904;&#x519C;&#x4F5C;&#x7269;&#x519C;&#x5EF6;&#xFF0C;&#x6E29;&#x5BB6;&#x5B9D;&#x6307;&#x793A;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x5357;&#x65B9;&#x5927;&#x65F1;&#xFF0C;&#x519C;&#x4F5C;&#x7269;&#x51CF;&#x4EA7;&#x7EDD;&#x6536;&#x9762;&#x79EF;&#x4E0A;&#x4EA9;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x732A;&#x6D41;&#x611F;&#x5728;&#x5E7F;&#x4E1C;&#x7FA4;&#x4F53;&#x6027;&#x66B4;&#x53D1;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x79BD;&#x6D41;&#x611F;&#x5728;&#x5168;&#x519C;&#x4F5C;&#x7269;&#x7EE7;&#x7EED;&#x8513;&#x5EF6;&#xFF0C;&#x6E29;&#x5BB6;&#x5B9D;&#x6307;&#x793A;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x5357;&#x65B9;&#x5927;&#x519C;&#x4F5C;&#x7269;&#x51CF;&#x4EA7;&#x7EDD;&#x6536;&#x9762;&#x79EF;&#x4E0A;&#x4EA9;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x732A;&#x6D41;&#x611F;&#x5728;&#x5E7F;&#x4E1C;&#x7FA4;&#x4F53;&#x6027;&#x66B4;&#x53D1;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">ol</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+            <span class="hljs-comment">&lt;!-- &#x5F53;key&#x503C;global&#x65F6; --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;cont&quot;</span> <span class="hljs-attribute">ng-switch-when</span>=<span class="hljs-value">&quot;funny&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">ol</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x6CB3;&#x5357;&#x518D;&#x6B21;&#x53D1;&#x751F;&#x77FF;&#x96BE;&#xFF0C;&#x6B7B;&#x4F24;&#x4EBA;&#x6570;&#x8D85;&#x8FC7;100<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x79BD;&#x6D41;&#x611F;&#x6B21;&#x53D1;&#x751F;&#x8513;&#x5EF6;&#xFF0C;&#x6E29;&#x5BB6;&#x5B9D;&#x6307;&#x793A;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x5357;&#x65B9;&#x5927;&#x65F1;&#xFF0C;&#x519C;&#x4F5C;&#x7269;&#x51CF;&#x4EA7;&#x7EDD;&#x6536;&#x9762;&#x79EF;&#x4E0A;&#x4EA9;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x732A;&#x6D41;&#x611F;&#x5728;&#x5E7F;&#x51CF;&#x4EA7;&#x7EDD;&#x6536;&#x53D1;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x79BD;&#x6D41;&#x611F;&#x5728;&#x5168;&#x56FD;&#x591A;&#x4F5C;&#x7269;&#x51CF;&#x4EA7;&#x7EDD;&#x6536;&#x9762;&#x79EF;&#x4E0A;&#x4EA9;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>&#x732A;&#x6D41;&#x611F;&#x5728;&#x5E7F;&#x4E1C;&#x7FA4;&#x4F53;&#x6027;&#x66B4;&#x53D1;<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">ol</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="actionscript">
+        <span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">&apos;hmApp&apos;</span>,[]);
+        app.controller(<span class="hljs-string">&apos;TabsCtrl&apos;</span>,[<span class="hljs-string">&apos;$scope&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($scope)</span> </span>{
+            $scope.flag = <span class="hljs-string">&apos;local&apos;</span>;
+            $scope.<span class="hljs-keyword">switch</span> = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(key)</span> </span>{
+                $scope.flag = key;
+            }
+        }]);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../Day01-MVC设计模式/11数据处理.html" class="navigation navigation-prev " aria-label="Previous page: 数据处理"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../Day01-MVC设计模式/13todos.html" class="navigation navigation-next " aria-label="Next page: 土豆丝案例"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

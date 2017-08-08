@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/angular.min.js"></script>
+    <script src="./lib/angular-animate.min.js"></script>
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: yellowgreen;
+            transition: 1s all;
+        }
+
+        .box.ng-enter {
+            opacity: 0;
+        }
+
+        .box.ng-enter-active {
+            opacity: 1;
+        }
+
+        .box.ng-leave {
+            opacity: 1;
+        }
+
+        .box.ng-leave-active {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body ng-app="hmApp">
+
+    <input type="checkbox" ng-model="switch" id="test"><label for="test">开关</label>
+    <div class="box" ng-if="switch">
+    </div>
+
+
+
+    <script>
+        var app = angular.module("hmApp", ["ngAnimate"]);
+    </script>
+</body>
+
+</html>

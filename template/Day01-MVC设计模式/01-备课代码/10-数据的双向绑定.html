@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. ng-model指令.
+       1). 作用于表单元素.用来声明1个变量
+           <input type="text" ng-model="val">
+
+       2). 这个变量和表单元素的值就进行了双向绑定
+           -> 表单元素的值得变化 会影响 该变量的值跟随着一起变化.
+           -> 该变量的值的变化,会影响表单元素的值跟随着一起变化.
+
+           这种绑定方式就叫做双向绑定.
+
+    2. ng-init指令
+       作用:初始化变量. 
+       一般情况下,数据模型的初始化我们都是放在控制器中的.
+       like this: $scope.name = "xxx";
+       实际上,数据模型的初始化我们也可以放在ng-init指令中.
+       <div ng-init="val=100"></div>
+       但是对于一些复杂的数据类型初始化,很明显放在控制器中更方便一些.
+
+    -->
+    <script src="./libs/angular.min.js"></script>
+</head>
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl" ng-init="val=100">
+        <input type="text" ng-model="val">
+        <h1>{{val}}</h1>
+        <input type="button" value="点我呀" ng-click="show()">
+    </div>
+    <script>
+        var app = angular.module("hmApp",[]);
+        app.controller("demoCtrl",function($scope){
+            $scope.show =function(){
+                $scope.val++;
+            }
+        });
+    </script>
+</body>
+</html>

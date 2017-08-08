@@ -1,0 +1,870 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>过滤器 | Introduction</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../Day02-依赖注入/03依赖注入.html" />
+    
+    
+    <link rel="prev" href="../Day02-依赖注入/01Angular作用域.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="2.2"
+        data-chapter-title="过滤器"
+        data-filepath="Day02-依赖注入/02过滤器.md"
+        data-basepath=".."
+        data-revision="Sat Jun 24 2017 16:34:10 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="Day01-MVC设计模式/00intro.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/00intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        第一天 MVC设计模式
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="Day01-MVC设计模式/01Angular简介.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/01Angular简介.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Angular简介
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Day01-MVC设计模式/02Angular初体验.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/02Angular初体验.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Angular初体验
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Day01-MVC设计模式/03MVC设计模式.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/03MVC设计模式.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        MVC设计模式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Day01-MVC设计模式/04模块化.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/04模块化.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        模块化
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Day01-MVC设计模式/05Angular的基本结构.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/05Angular的基本结构.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        Angular基本结构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="Day01-MVC设计模式/06Angular内置指令.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/06Angular内置指令.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        Angular指令
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="Day01-MVC设计模式/07数据单向绑定.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/07数据单向绑定.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.7.</b>
+                        
+                        Angular数据单向绑定
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="Day01-MVC设计模式/08数据双向绑定.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/08数据双向绑定.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.8.</b>
+                        
+                        Angular数据双向绑定
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Day01-MVC设计模式/09ng-init指令.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/09ng-init指令.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.9.</b>
+                        
+                        ng-init指令
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Day01-MVC设计模式/10Angular事件处理.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/10Angular事件处理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.10.</b>
+                        
+                        Angular事件处理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Day01-MVC设计模式/11数据处理.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/11数据处理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.11.</b>
+                        
+                        数据处理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="Day01-MVC设计模式/12Tabs案例.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/12Tabs案例.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.12.</b>
+                        
+                        Tabs案例
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="Day01-MVC设计模式/13todos.html">
+            
+                
+                    <a href="../Day01-MVC设计模式/13todos.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.13.</b>
+                        
+                        土豆丝案例
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="Day02-依赖注入/00intro.html">
+            
+                
+                    <a href="../Day02-依赖注入/00intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        第二天 依赖注入&amp;服务
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="Day02-依赖注入/01Angular作用域.html">
+            
+                
+                    <a href="../Day02-依赖注入/01Angular作用域.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Angular作用域
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="Day02-依赖注入/02过滤器.html">
+            
+                
+                    <a href="../Day02-依赖注入/02过滤器.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        过滤器
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="Day02-依赖注入/03依赖注入.html">
+            
+                
+                    <a href="../Day02-依赖注入/03依赖注入.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        依赖注入
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="Day02-依赖注入/04服务.html">
+            
+                
+                    <a href="../Day02-依赖注入/04服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        内置服务
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="Day02-依赖注入/0401$log服务.html">
+            
+                
+                    <a href="../Day02-依赖注入/0401$log服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.1.</b>
+                        
+                        $log服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="Day02-依赖注入/0402$timeout服务.html">
+            
+                
+                    <a href="../Day02-依赖注入/0402$timeout服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.2.</b>
+                        
+                        $timeout服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="Day02-依赖注入/0403$interval服务.html">
+            
+                
+                    <a href="../Day02-依赖注入/0403$interval服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.3.</b>
+                        
+                        $interval服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="Day02-依赖注入/0404$filter服务.html">
+            
+                
+                    <a href="../Day02-依赖注入/0404$filter服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.4.</b>
+                        
+                        $filter服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="Day02-依赖注入/0405$http服务.html">
+            
+                
+                    <a href="../Day02-依赖注入/0405$http服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.5.</b>
+                        
+                        $http服务
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="Day02-依赖注入/05AngularJS版聊天机器人.html">
+            
+                
+                    <a href="../Day02-依赖注入/05AngularJS版聊天机器人.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        聊天机器人
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="Day02-依赖注入/06天气预报.html">
+            
+                
+                    <a href="../Day02-依赖注入/06天气预报.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        天气预报
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="Day03-路由/00intro.html">
+            
+                
+                    <a href="../Day03-路由/00intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        第三天 路由
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="Day03-路由/01自定义服务.html">
+            
+                
+                    <a href="../Day03-路由/01自定义服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        自定义服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="Day03-路由/02AngularJS执行顺序.html">
+            
+                
+                    <a href="../Day03-路由/02AngularJS执行顺序.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        NG执行顺序
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="Day03-路由/03配置块.html">
+            
+                
+                    <a href="../Day03-路由/03配置块.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        配置块
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="Day03-路由/04运行块.html">
+            
+                
+                    <a href="../Day03-路由/04运行块.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        运行块
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="Day03-路由/05锚链接跳转.html">
+            
+                
+                    <a href="../Day03-路由/05锚链接跳转.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        锚链接跳转
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="Day03-路由/06SPA.html">
+            
+                
+                    <a href="../Day03-路由/06SPA.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        SPA
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="Day03-路由/07AngularJS的路由.html">
+            
+                
+                    <a href="../Day03-路由/07AngularJS的路由.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        AngularJS的路由
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="Day03-路由/08jQlite.html">
+            
+                
+                    <a href="../Day03-路由/08jQlite.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        jqLite
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="Day03-路由/09音乐列表.html">
+            
+                
+                    <a href="../Day03-路由/09音乐列表.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        音乐列表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="Day03-路由/10bower.html">
+            
+                
+                    <a href="../Day03-路由/10bower.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        Bower
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="Day04-豆瓣电影/00intro.html">
+            
+                
+                    <a href="../Day04-豆瓣电影/00intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        第四天 豆瓣电影
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="Day04-豆瓣电影/01WebApi.html">
+            
+                
+                    <a href="../Day04-豆瓣电影/01WebApi.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        WebApi
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Introduction</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x8FC7;&#x6EE4;&#x5668;">&#x8FC7;&#x6EE4;&#x5668;</h1>
+<pre><code>&#x5728;AngularJS&#x4E2D;&#x4F7F;&#x7528;&#x8FC7;&#x6EE4;&#x5668;&#x683C;&#x5F0F;&#x5316;&#x5C55;&#x793A;&#x6570;&#x636E;&#xFF0C;&#x5728;&#x201C;{{}}&#x201D;&#x4E2D;&#x4F7F;&#x7528;&#x201C;|&#x201D;&#x6765;&#x8C03;&#x7528;&#x8FC7;&#x6EE4;&#x5668;&#xFF0C;&#x4F7F;&#x7528;&#x201C;:&#x201D;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x3002;
+</code></pre><h2 id="1&#x5185;&#x7F6E;&#x8FC7;&#x6EE4;&#x5668;">1.&#x5185;&#x7F6E;&#x8FC7;&#x6EE4;&#x5668;</h2>
+<ul>
+<li>&#x65E5;&#x671F;&#x8FC7;&#x6EE4;&#x5668;
+  <code>&#xFF5B;{now|date:&apos;yyyy-MM-dd hh:mm:ss&apos;}}</code></li>
+<li>&#x8D27;&#x5E01;&#x7B26;&#x53F7;&#x8FC7;&#x6EE4;&#x5668;
+  <code>&#xFF5B;{price|currency}}</code><ul>
+<li>&#x9ED8;&#x8BA4;&#x662F;&#x7F8E;&#x5143;&#x7B26;&#x53F7;</li>
+<li>&#x5982;&#x679C;&#x60F3;&#x8981;&#x663E;&#x793A;&#x5176;&#x5B83;&#x8D27;&#x5E01;&#x7B26;&#x53F7;<pre><code>&#xFF5B;{price|currency:&apos;&#xFFE5;&apos;}}
+&#x8FD9;&#x6837;&#x663E;&#x793A;&#x7684;&#x5C31;&#x662F;&#x4EBA;&#x6C11;&#x5E01;&#x7B26;&#x53F7;
+</code></pre></li>
+<li>&#x4FDD;&#x7559;&#x6307;&#x5B9A;&#x4F4D;&#x6570;&#x7684;&#x5C0F;&#x6570;<pre><code>&#xFF5B;{price|currency:&apos;&#xFFE5;&apos;:2}}
+&#x8FD9;&#x6837;&#x663E;&#x793A;&#x7684;&#x5C31;&#x662F;&#x4EBA;&#x6C11;&#x5E01;&#x7B26;&#x53F7; &#x5E76;&#x56DB;&#x820D;&#x4E94;&#x5165;&#x4FDD;&#x7559;&#x4E24;&#x4F4D;&#x5C0F;&#x6570;
+</code></pre></li>
+</ul>
+</li>
+<li>&#x8F6C;&#x6362;&#x4E3A;&#x5927;&#x5199;<pre><code>  &#xFF5B;{info|uppercase}}
+   &#x5C06;info&#x7684;&#x503C;&#x8F6C;&#x6362;&#x4E3A;&#x5927;&#x5199;&#x663E;&#x793A;
+</code></pre></li>
+<li>&#x8F6C;&#x6362;&#x4E3A;&#x5C0F;&#x5199;<pre><code>  &#xFF5B;{info|lowercase}}
+   &#x5C06;info&#x7684;&#x503C;&#x8F6C;&#x6362;&#x4E3A;&#x5C0F;&#x5199;&#x663E;&#x793A;
+</code></pre></li>
+<li>&#x622A;&#x53D6;&#x6570;&#x7EC4;/&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6307;&#x5B9A;&#x4F4D;&#x6570;&#x7684;&#x5143;&#x7D20;.<pre><code>  &#xFF5B;{arr|limitTo:n}}
+   &#x6B63;&#x6570;&#x4ECE;&#x5DE6;&#x5F80;&#x53F3;&#x622A;&#x53D6;n&#x4E2A;&#x5143;&#x7D20;
+   &#x8D1F;&#x6570;&#x4ECE;&#x53F3;&#x5F80;&#x5DE6;&#x622A;&#x53D6;n&#x4E2A;&#x5143;&#x7D20;
+   arr&#x53EF;&#x4EE5;&#x662F;1&#x4E2A;&#x6570;&#x7EC4;
+   &#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;.&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x8BDD;&#x5C31;&#x622A;&#x53D6;&#x6BCF;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;.
+</code></pre></li>
+<li>&#x5904;&#x7406;&#x6570;&#x5B57;&#x7684;&#x8FC7;&#x6EE4;&#x5668;<code>number</code>&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x5C0F;&#x6570;&#x7684;&#x4F4D;&#x6570;<pre><code class="lang-html">  &#xFF5B;{num|number:2}} &#x4FDD;&#x7559;2&#x4F4D;&#x5C0F;&#x6570;&#x8F93;&#x51FA;.
+</code></pre>
+</li>
+<li>json&#x8FC7;&#x6EE4;&#x5668; &#x5C06;&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x4E3A;json&#x5B57;&#x7B26;&#x4E32;<pre><code>  &#xFF5B;{obj|json}} &#x5C06;obj&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x4E3A;json&#x5B57;&#x7B26;&#x4E32;&#x8F93;&#x51FA;.&#x5B9E;&#x9645;&#x4E0A;,&#x4E0D;&#x4F7F;&#x7528;json&#x8FC7;&#x6EE4;&#x5668;&#x5B83;&#x4E5F;&#x4F1A;&#x8FD9;&#x4E48;&#x505A;.
+</code></pre></li>
+<li>orderBy&#x8FC7;&#x6EE4;&#x5668;<pre><code>  &#xFF5B;{students|orderBy:&apos;score&apos;}} &#x5C06;student&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x4EE5;score&#x5C5E;&#x6027;&#x4E3A;&#x53C2;&#x7167;&#x8FDB;&#x884C;&#x6392;&#x5E8F; &#x9ED8;&#x8BA4;&#x662F;&#x5347;&#x5E8F;.
+  &#xFF5B;{students|orderBy:&apos;score&apos;:true}} &#x964D;&#x5E8F;
+</code></pre></li>
+<li>filter &#x8FC7;&#x6EE4;&#x5668;<pre><code>  &#xFF5B;{students|filter:{score:90} }} &#x8FC7;&#x6EE4;&#x51FA;&#x6570;&#x7EC4;&#x4E2D;&#x5BF9;&#x8C61;&#x5206;&#x6570;&#x7B49;&#x4E8E;90&#x7684;&#x5BF9;&#x8C61;.
+   &#x7279;&#x522B;&#x6CE8;&#x610F;: &#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x5FC5;&#x987B;&#x548C;&#x540E;&#x9762;&#x7684;&#x5927;&#x62EC;&#x5F27;&#x6709;&#x4E00;&#x4E2A;&#x7A7A;&#x683C;.
+</code></pre><h2 id="2&#x81EA;&#x5B9A;&#x4E49;&#x8FC7;&#x6EE4;&#x5668;">2.&#x81EA;&#x5B9A;&#x4E49;&#x8FC7;&#x6EE4;&#x5668;</h2>
+</li>
+<li>&#x6A21;&#x5757;&#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;filter&#x65B9;&#x6CD5;,&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x8FC7;&#x6EE4;&#x5668;.</li>
+<li><p>&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x8BF4;&#x660E;</p>
+<ul>
+<li>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;: &#x8FC7;&#x6EE4;&#x5668;&#x540D;&#x79F0;</li>
+<li><p>&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;: &#x56DE;&#x8C03;&#x51FD;&#x6570; - &#x5F53;&#x6267;&#x884C;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x8FC7;&#x6EE4;&#x5668;&#x7684;&#x65F6;&#x5019;,&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x6765;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;.</p>
+<pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">ng-controller</span>=<span class="hljs-value">&quot;demoCtrl&quot;</span>&gt;</span>
+      &#xFF5B;{name|highven}}
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+      <span class="hljs-keyword">var</span> app = angular.module(<span class="hljs-string">&apos;hmApp&apos;</span>, []);
+      app.controller(<span class="hljs-string">&apos;demoCtrl&apos;</span>, [<span class="hljs-string">&apos;$scope&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$scope</span>) </span>{
+          $scope.name = <span class="hljs-string">&quot;jack&quot;</span>;
+      }])
+      app.filter(<span class="hljs-string">&apos;highven&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;&#x6211;&#x88AB;&#x6267;&#x884C;&#x4E86;&quot;</span>);
+      });
+  </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>&#x901A;&#x8FC7;&#x8C03;&#x8BD5;&#x53D1;&#x73B0;,&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x786E;&#x5B9E;&#x88AB;&#x6267;&#x884C;&#x4E86;,&#x4F46;&#x662F;&#x62A5;&#x9519;&#x4E86;.&#x62A5;&#x9519;&#x7684;&#x539F;&#x56E0;&#x662F;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x6309;&#x7167;&#x8981;&#x6C42;&#x6765;&#x5199;&#x8FD9;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x548C;&#x8FD4;&#x56DE;&#x503C;.</li>
+<li>&#x8981;&#x6C42;&#x8FD9;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;.&#x8FD4;&#x56DE;&#x7684;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x8FC7;&#x6EE4;&#x5668;,&#x6765;&#x5904;&#x7406;&#x8FC7;&#x6EE4;&#x6570;&#x636E;&#x7684;.</li>
+<li>&#x8FD9;&#x4E2A;&#x8FD4;&#x56DE;&#x7684;&#x51FD;&#x6570;<ul>
+<li>&#x7B2C;1&#x4E2A;&#x53C2;&#x6570;: &#x9700;&#x8981;&#x5904;&#x7406;&#x8FC7;&#x6EE4;&#x7684;&#x6570;&#x636E;.</li>
+<li>&#x540E;&#x9762;&#x7684;&#x53C2;&#x6570;: &#x5904;&#x7406;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;,&#x81EA;&#x5DF1;&#x8FD8;&#x9700;&#x8981;&#x7684;&#x53E6;&#x5916;&#x7684;&#x53C2;&#x6570;</li>
+<li>&#x8FD4;&#x56DE;&#x503C;: &#x5904;&#x7406;&#x5B8C;&#x6BD5;&#x540E;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;,&#x88AB;&#x663E;&#x793A;&#x51FA;&#x6765;.<pre><code class="lang-js">&lt;!-- &#x5C31;&#x4F1A;&#x5C06;name&#x4F20;&#x9012;&#x7ED9;&#x81EA;&#x5B9A;&#x4E49;&#x8FC7;&#x6EE4;&#x5668;&#x8FD4;&#x56DE;&#x7684;&#x51FD;&#x6570;&#x5904;&#x7406; &#x6700;&#x7EC8;&#x663E;&#x793A;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C; --&gt;
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span>&#xFF5B;{name|highven}}<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="actionscript">
+  app.filter(<span class="hljs-string">&apos;highven&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span></span>{
+          <span class="hljs-keyword">return</span> data+<span class="hljs-string">&quot;&#x54C8;&#x54C8;&quot;</span>;
+      }
+  });
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</span></code></pre>
+</li>
+</ul>
+</li>
+<li>&#x81EA;&#x5B9A;&#x4E49;&#x8FC7;&#x6EE4;&#x5668;&#x6848;&#x4F8B;:&#x5C06;&#x4E00;&#x4E2A;&#x82F1;&#x6587;&#x53E5;&#x5B50;&#x4E2D;&#x9996;&#x4E2A;&#x5355;&#x8BCD;&#x7684;&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5199;.<pre><code class="lang-js">  app.filter(<span class="hljs-string">&apos;firstBig&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+          <span class="hljs-keyword">return</span> data[<span class="hljs-number">0</span>].toUpperCase()+data.slice(<span class="hljs-number">1</span>);
+          <span class="hljs-comment">//slice&#x4ECE;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x63D0;&#x53D6;&#x5B57;&#x7B26;&#x4E32; &#x6CA1;&#x6709;&#x7B2C;2&#x4E2A;&#x53C2;&#x6570;&#x5C31;&#x4E00;&#x76F4;&#x63D0;&#x5230;&#x6700;&#x540E;.</span>
+      }
+  });
+</code></pre>
+</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../Day02-依赖注入/01Angular作用域.html" class="navigation navigation-prev " aria-label="Previous page: Angular作用域"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../Day02-依赖注入/03依赖注入.html" class="navigation navigation-next " aria-label="Next page: 依赖注入"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

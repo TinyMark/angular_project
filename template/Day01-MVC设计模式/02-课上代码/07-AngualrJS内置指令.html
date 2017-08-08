@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1. HTML非常的简单 并且功能非常的单一.
+       所以,ng就扩展了html的标签和属性.
+       大多数增加的是html属性. 也就是指令.
+       AngularJS新增的指令 都是以ng-开头.
+
+    2. ng-app 指定angularJS管理的范围.
+    3. ng-controller 指定与控制器相关联的视图.
+    4. ng-show 控制元素是否是显示
+               取值boolean值  
+               true: 这个元素将会被显示
+               false: 这个元素将不会被显示.
+      可以直接给1个bool值
+      也可以写1个变量.
+      也可以给1个表达式.
+
+    5. ng-hide 控制元素是否隐藏
+               bool
+               true: 隐藏
+               false: 不会被隐藏
+       bool
+       变量
+       表达式.
+
+    6. ng-if指令
+       作用: 是用来控制元素是否要被创建在dom数上.
+       boolean: true 这个元素将会被创建在dom上,
+                false 这个元素不会被创建在dom上,
+
+        bool
+       变量
+       表达式.
+
+    7. ng-src
+       增强的src路径.
+
+
+    8. ng-href 增强的超级链接指令.
+
+
+    9. ng-class
+       作用: 用来确定指定的CSS类样式是否作用在指定的元素身上.
+       取值是1个对象:
+       {
+           CSS类名:boolean值
+       }
+         true: 这个类样式将会被作用在这个元素身上.
+         false: 这个类样式将会不会被作用在这个元素身上.
+
+    -------------------------------
+    1. 在视图中如果显示数据的地方是原生的html代码的时候.
+       这个时候要绑定$scope中的数据 就必须要使用{{}}符号来绑定数据.  
+
+
+    2. AngularJS内置了一些指令.
+       如果要再ng指令的值中去使用$scope的值.
+       绝大多数情况下 直接使用就可以 不需要加{{}}
+
+       ng-src 例外. 要使用#scope的值得花 需要加{{}}
+
+
+
+      -->
+    <style>
+        .one {
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+            margin-top: 10px;
+        }
+
+        .two {
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            margin-top: 10px;
+        }
+
+
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            margin-top: 10px;
+        }
+        
+    </style>
+    <script src="./lib/angular.min.js"></script>
+</head>
+
+<body ng-app="hmApp">
+
+    <div ng-controller="demoCtrl">
+
+
+        <div class="one" ng-show="flag"></div>
+
+        <div class="two" ng-if="false"> </div>
+        <!--"{{path}}""  -->
+        <!--
+
+            xuanwen.wang/{{path}}
+          -->
+        <img ng-src="{{path}}" alt="">
+
+
+        <div  ng-class="{box:flag}"></div>
+
+        <span id="{{sep}}">{{num}}</span>
+        <div class="{{clsName}}"></div>
+    </div>
+
+    <script>
+        var app = angular.module("hmApp", []);
+        app.controller("demoCtrl", ["$scope", function ($scope) {
+            $scope.clsName =  "box";
+            $scope.flag = false;
+            $scope.sep = "aa100"
+            $scope.num = 10;
+            $scope.path = "./images/guanguan.jpg";
+        }]);
+    </script>
+</body>
+
+</html>

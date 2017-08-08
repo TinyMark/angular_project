@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+    1.自定义指令.
+      ng-show
+      ng-hide
+      .....
+      这些都是内置的指令.
+      如果你觉得这些指令不能满足你的要求.
+      或者是说,你想要的功能内置的指令无法提供.
+      那么这个时候,就可以自定义指令.
+
+    2.模块对象提供了一个方法: directive
+      这个方法就允许我们自定义指令.
+
+      参数1: 自定义指令的名称.
+      参数2: 是1个回调函数. 当ng解析到1个标签有这个指令的时候,就会去执行这个回调.
+            要求返回1个对象,.通过键值对的形式来指定这个自定义指令要做的事情.
+            restrict: 指定自定义指令的类型.
+                      E element 代表自定义的指令是1个html标签.
+                      C 类
+                      M Mark 注释.
+                      A attribute
+            template: 表示模板.
+            templateUrl: 加载外部文件作为模板.
+            replace:bool 是否替换原本的包裹标签.
+            link:这是1个函数 有3个参数
+                 scope:忽略.
+                 element: 代表被设定了该指令的元素.
+                 attrs: 可以拿到被element的所有的属性.
+
+       注意: 自定义指令的名称如果你是采用的驼峰命名。
+             那么在使用这个指令的时候要使用-
+             hmTag    hm-tag
+             在link函数中=如果你要去自定义属性的值。hmTag
+             
+
+
+
+    -->
+    <script src="./lib/angular.min.js"></script>
+    <style>
+        .one *{
+            width: 80px;
+            height: 30px;
+            margin-left: 10px;
+            background-color: hotpink;
+            float: left;
+        }
+    </style>
+</head>
+
+<body ng-app="hmApp">
+    <div ng-controller="demoCtrl" class="one">
+        <!-- <a href="http://www.baidu.com" id="aaa" class="ccc" tag>导航1</a>
+        <a href="#" tag>ni hao</a> -->
+
+        <div hm-tag="jack"></div>
+        <div hm-tag="rose"></div>
+        <div hm-tag="lilei"></div>
+    </div>
+
+
+
+
+    <script>
+        var app = angular.module("hmApp", []);
+
+
+        app.directive("hmTag", function () {
+            return {
+                restrict:"AE",
+                // template: "<h1>我爱广州小蛮腰!</h1>",
+                // //templateUrl:"./inlcude演示/top.html",
+                // replace:true
+                link:function(scope,element,attrs){
+                    // console.log("我是link函数");
+                    // console.log(scope);
+                    // console.log(element);
+                    // console.log(attrs);
+                    element.on("click",function(){
+                        alert("你好呀"+attrs["hm-tag"]);
+                    });
+
+                }
+            };
+        });
+
+        app.controller("demoCtrl", ["$scope", function ($scope) {
+
+        }]);
+    </script>
+</body>
+
+</html>

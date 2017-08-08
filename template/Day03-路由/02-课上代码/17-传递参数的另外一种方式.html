@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        nav {
+            height: 40px;
+            background-color: yellowgreen;
+        }
+
+        nav a {
+
+            line-height: 40px;
+        }
+    </style>
+    <!--
+    1. 路由参数的另外一种表现形式.
+       虽然是另外一种形式.
+       但是其本质仍然是路由参数.只是写法和我们刚刚讲的有点点不一样.
+       但是本质是一样的.都是路由参数.
+
+
+    2. 在使用when方法写路由规则的时候,
+       可以这么写：
+       /my/:name 
+       请注意,这个路由规则可以匹配的路由: /my/jack
+       冒号前面的必须要保持一致.后面的必须要有 是什么无所谓.
+       如果没有 是匹配不成功的.
+
+    3. 实际上,这就是路由参数的第2种传递方式.
+       
+       路由规则：  "/my/:name".
+       可以成功匹配:   "#/my/jack"
+       实际上: name是参数名.jack是name参数的值.
+       在控制器中仍然可以使用$routeParams来取到路由过来的数据.
+
+    4. 要匹配多个参数.
+       "/home/:name/:age"
+       "#/home/jack/18"
+
+       name=jack  age=18
+
+    5. 在路由规则的参数名后面加1个?
+       表示可以传递也可以不传递 都能匹配到
+       "/home/:name?"
+       "#/home"
+       "#/home/jack"
+   
+ 
+
+       
+    -->
+    <script src="./lib/angular.min.js"></script>
+    <script src="./lib/angular-route.js"></script>
+</head>
+
+<body ng-app="hmApp">
+    <nav>
+        <a href="#/home">首页</a>
+        <a href="#/my">我的音乐</a>
+        <a href="#/find">发现音乐</a>
+    </nav>
+    <div id="content" ng-view></div>
+
+    <script>
+        var app = angular.module("hmApp", ["ngRoute"]);
+        app.config(["$locationProvider", function ($locationProvider) {
+            $locationProvider.hashPrefix("");
+        }]);
+        app.config(["$routeProvider", function ($routeProvider) {
+            $routeProvider.when("/home", {
+                templateUrl: "./music/home.html"
+                //1. #/my/aaa
+                //2. #my/19/jack
+                //3. #/my
+            }).when("/my/:age?", {
+                templateUrl: "./music/my.html",
+                controller:"myCtrl"
+            }).when("/find", {
+                templateUrl: "./music/find.html"
+            }).when("/", {
+                redirectTo: "/home"
+            }).otherwise({
+                templateUrl: "./music/404.html"
+            });
+        }]);
+
+        app.controller("myCtrl",["$scope","$routeParams",function($scope,$routeParams){
+            console.log($routeParams);
+        }]);
+
+    </script>
+</body>
+
+</html>
